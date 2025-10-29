@@ -17,23 +17,30 @@ gsap.registerPlugin(MorphSVGPlugin);
 const Hero = () => {
   const morphRef = useRef<SVGPathElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-
+  const animationRef = useRef<number | null>(null);
   useEffect(() => {
     const tl = gsap.timeline({
       repeat: -1,
       yoyo: true,
-      defaults: { duration: 3, ease: 'power1.inOut' }, // Reduced frequency from 2 to 3
+      defaults: { duration: 3, ease: 'power1.inOut' },
     });
 
     innerPaths.slice(1).forEach(path => {
       tl.to(morphRef.current, { morphSVG: path });
     });
+
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
   }, []);
 
   return (
     <Box
       id="hero"
-
+      pb={10}
       display="flex"
       alignItems="center"
       justifyContent="center"
@@ -42,12 +49,13 @@ const Hero = () => {
       bg={colors.backgroundPrimary}
     >
       <motion.div
+        key="hero-animation" // Force re-mount on navigation
         initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}
       >
-        <Box position="relative" zIndex={20} mb="-400px" mt={20} ref={textRef}>
+        <Box position="relative" zIndex={20} mt={20} ref={textRef}>
           <Text
             fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
             fontWeight="bold"
@@ -63,7 +71,7 @@ const Hero = () => {
         </Box>
 
         {/* Blue Layers + Center Circle */}
-        <Box position="relative" display="inline-block" width="1400px" height="1400px" mt={-16}>
+        <Box position="relative" display="inline-block" width="1400px" height="900px" mt={-16}>
           <motion.div
             transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
             style={{ position: 'relative', width: '100%', height: '100%' }}
@@ -107,14 +115,6 @@ const Hero = () => {
                   width: '50px',
                   height: '50px',
                 }}
-                animate={{
-                  opacity: [1, 0.3, 1, 0.3, 1],
-                }}
-                transition={{
-                  duration: 40,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
               >
                 <Image src={messagecirc} alt="Message Circle" boxSize="50px" />
               </motion.div>
@@ -127,14 +127,6 @@ const Hero = () => {
                   transform: 'translate(-50%, -50%) translate(-280px, 0px)',
                   width: '50px',
                   height: '50px',
-                }}
-                animate={{
-                  opacity: [0.3, 1, 0.3, 1, 0.3],
-                }}
-                transition={{
-                  duration: 40,
-                  repeat: Infinity,
-                  ease: "linear",
                 }}
               >
                 <Image src={messagerec} alt="Message Record" boxSize="50px" />
@@ -164,14 +156,6 @@ const Hero = () => {
                   width: '50px',
                   height: '50px',
                 }}
-                animate={{
-                  opacity: [0.2, 1, 0.2],
-                }}
-                transition={{
-                  duration: 35,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
               >
                 <Image src={mic} alt="Microphone" boxSize="50px" />
               </motion.div>
@@ -184,14 +168,6 @@ const Hero = () => {
                   transform: 'translate(-50%, -50%) translate(0px, 220px)',
                   width: '50px',
                   height: '50px',
-                }}
-                animate={{
-                  opacity: [1, 0.2, 1],
-                }}
-                transition={{
-                  duration: 35,
-                  repeat: Infinity,
-                  ease: "linear",
                 }}
               >
                 <Image src={phone} alt="Phone" boxSize="50px" />
@@ -220,14 +196,6 @@ const Hero = () => {
                   transform: 'translate(-50%, -50%) translate(120px, -120px)',
                   width: '160px',
                   height: '160px',
-                }}
-                animate={{
-                  opacity: [1, 0.3, 0.1, 0.3, 1],
-                }}
-                transition={{
-                  duration: 30,
-                  repeat: Infinity,
-                  ease: "linear",
                 }}
               >
                 <Image src={send} alt="Send" boxSize="50px" />

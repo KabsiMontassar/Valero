@@ -3,7 +3,7 @@ import { gradientTextStyles, colors } from '../../theme';
 import { motion } from 'framer-motion';
 const Demo = () => {
   return (
-    <Box id="Demo" minH="100vh" alignItems="center" justifyContent="center" position="relative" overflow="hidden">
+    <Box id="Demo" pt={10} pb={20} alignItems="center" justifyContent="center" position="relative" overflow="hidden">
       {/* Content */}
      
       <motion.div

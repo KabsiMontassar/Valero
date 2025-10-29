@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react';
 
 const Features = () => {
   return (
-    <Box id="features" minH="100vh" display="flex" alignItems="center" justifyContent="center" position="relative" overflow="hidden">
+    <Box id="features" pt={10} pb={20} display="flex" alignItems="center" justifyContent="center" position="relative" overflow="hidden">
       {/* Content */}
      
     </Box>

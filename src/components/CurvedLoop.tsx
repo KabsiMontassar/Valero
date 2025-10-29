@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useMemo, useId,type  FC, type PointerEvent } from 'react';
+import { useRef, useEffect, useState, useMemo, useId, type FC, type PointerEvent } from 'react';
 import { colors } from '../theme';
 
 interface CurvedLoopProps {
@@ -8,6 +8,7 @@ interface CurvedLoopProps {
   curveAmount?: number;
   direction?: 'left' | 'right';
   interactive?: boolean;
+  edgeFade?: boolean; 
 }
 
 const CurvedLoop: FC<CurvedLoopProps> = ({
@@ -16,7 +17,8 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   className,
   curveAmount = 400,
   direction = 'left',
-  interactive = true
+  interactive = true,
+  edgeFade = true
 }) => {
   const text = useMemo(() => {
     const hasTrailing = /\s|\u00A0$/.test(marqueeText);
@@ -25,7 +27,6 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
 
   const measureRef = useRef<SVGTextElement | null>(null);
   const textPathRef = useRef<SVGTextPathElement | null>(null);
-  const pathRef = useRef<SVGPathElement | null>(null);
   const [spacing, setSpacing] = useState(0);
   const [offset, setOffset] = useState(0);
   const uid = useId();
@@ -48,15 +49,13 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
 
   useEffect(() => {
     if (measureRef.current) setSpacing(measureRef.current.getComputedTextLength());
-  }, [text, className]);
+  }, [text]);
 
   useEffect(() => {
-    if (!spacing) return;
-    if (textPathRef.current) {
-      const initial = -spacing;
-      textPathRef.current.setAttribute('startOffset', initial + 'px');
-      setOffset(initial);
-    }
+    if (!spacing || !textPathRef.current) return;
+    const initial = -spacing;
+    textPathRef.current.setAttribute('startOffset', initial + 'px');
+    setOffset(initial);
   }, [spacing]);
 
   useEffect(() => {
@@ -111,11 +110,19 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center w-full"
+      className="relative flex items-center justify-center w-full py-16"
       style={{
         visibility: ready ? 'visible' : 'hidden',
         cursor: cursorStyle,
-        backgroundColor: colors.backgroundPrimary
+        backgroundColor: colors.backgroundPrimary,
+        position: 'relative',
+        overflow: 'hidden',
+        ...(edgeFade && {
+          WebkitMaskImage:
+            'linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 30%, rgba(0,0,0,1) 60%, rgba(0,0,0,0))',
+          maskImage:
+            'linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 30%, rgba(0,0,0,1) 60%, rgba(0,0,0,0))',
+        }),
       }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
@@ -127,14 +134,16 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
         viewBox="0 0 1440 120"
         style={{
           fontSize: '4rem',
-          fontFamily: 'inherit' // Use inherited font family
+          fontFamily: 'inherit',
+          fontWeight: 600,
+          filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.4))', // text shadow glow
         }}
       >
         <text ref={measureRef} xmlSpace="preserve" style={{ visibility: 'hidden', opacity: 0, pointerEvents: 'none' }}>
           {text}
         </text>
         <defs>
-          <path ref={pathRef} id={pathId} d={pathD} fill="none" stroke="transparent" />
+          <path id={pathId} d={pathD} fill="none" stroke="transparent" />
           <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor={colors.primary} />
             <stop offset="100%" stopColor={colors.secondary} />
@@ -148,6 +157,14 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
           </text>
         )}
       </svg>
+
+      {/* Optional overlay shadows for extra depth */}
+      {edgeFade && (
+        <>
+          <div className="absolute top-0 left-0 h-full w-[10%] pointer-events-none bg-gradient-to-r from-black/50 to-transparent" />
+          <div className="absolute top-0 right-0 h-full w-[10%] pointer-events-none bg-gradient-to-l from-black/50 to-transparent" />
+        </>
+      )}
     </div>
   );
 };

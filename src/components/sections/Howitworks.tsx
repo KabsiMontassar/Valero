@@ -13,12 +13,13 @@ const Howitworks = () => {
   return (
     <Box
       id="howitworks"
-     
+      pt={10}
+      pb={20}
       bg={colors.backgroundPrimary}
     >
 
       <CurvedLoop
-        marqueeText="CHAT ✦ HANG OUT ✦ TALK ✦ HAVE FUN ✦"
+        marqueeText="CHAT  ✦  HANG OUT  ✦  TALK  ✦  HAVE FUN  ✦"
         speed={.5}
         curveAmount={0}
         direction="right"

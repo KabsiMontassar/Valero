@@ -3,7 +3,7 @@ import { gradientTextStyles } from '../../theme';
 
 const Footer = () => {
   return (
-    <Box id="footer" minH="100vh"  display="flex" alignItems="center" justifyContent="center">
+    <Box id="footer" pt={10} pb={20} display="flex" alignItems="center" justifyContent="center">
       <Text fontSize="4xl" fontWeight="bold" style={gradientTextStyles}>
         Footer
       </Text>
