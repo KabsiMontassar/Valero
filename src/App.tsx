@@ -1,12 +1,10 @@
 import { ChakraProvider, createSystem, defaultConfig } from '@chakra-ui/react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import colors from './theme';
 import Layout from './components/Layout';
-import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import Features from './components/sections/Features';
-import Demo from './components/sections/Demo';
-import Vision from './components/sections/Vision';
-import Contact from './components/sections/Contact';
+import Home from './pages/Home';
+import FeaturesPage from './pages/FeaturesPage';
+import ContactPage from './pages/ContactPage';
 
 const system = createSystem(defaultConfig, {
   theme: {
@@ -34,14 +32,15 @@ const system = createSystem(defaultConfig, {
 function App() {
   return (
     <ChakraProvider value={system}>
-      <Layout>
-        <Hero />
-        <About />
-        <Features />
-        <Demo />
-        <Vision />
-        <Contact />
-      </Layout>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/features" element={<FeaturesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </Layout>
+      </Router>
     </ChakraProvider>
   );
 }
