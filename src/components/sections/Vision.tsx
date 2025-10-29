@@ -2,8 +2,8 @@ import { Box, Container, Heading, Text, VStack } from '@chakra-ui/react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-const MotionBox = motion(Box);
-const MotionText = motion(Text);
+const MotionBox = motion.create(Box);
+const MotionText = motion.create(Text);
 
 const Vision = () => {
   const ref = useRef(null);

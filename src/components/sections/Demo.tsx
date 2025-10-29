@@ -4,7 +4,7 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { Github, ExternalLink } from 'lucide-react';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 const Demo = () => {
   const ref = useRef(null);

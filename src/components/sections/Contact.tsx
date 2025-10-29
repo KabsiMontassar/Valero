@@ -3,8 +3,8 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Github, Mail, Heart } from 'lucide-react';
 
-const MotionBox = motion(Box);
-const MotionText = motion(Text);
+const MotionBox = motion.create(Box);
+const MotionText = motion.create(Text);
 
 const Contact = () => {
   const ref = useRef(null);

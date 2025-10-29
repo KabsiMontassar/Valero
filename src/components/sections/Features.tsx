@@ -12,9 +12,9 @@ import {
   Zap 
 } from 'lucide-react';
 
-const MotionBox = motion(Box);
-const MotionGridItem = motion(GridItem);
-const MotionIcon = motion(Icon);
+const MotionBox = motion.create(Box);
+const MotionGridItem = motion.create(GridItem);
+const MotionIcon = motion.create(Icon);
 
 interface FeatureCardProps {
   icon: React.ElementType;

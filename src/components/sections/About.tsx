@@ -2,8 +2,8 @@ import { Box, Container, Grid, GridItem, Heading, Text, VStack } from '@chakra-u
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-const MotionBox = motion(Box);
-const MotionText = motion(Text);
+const MotionBox = motion.create(Box);
+const MotionText = motion.create(Text);
 
 const About = () => {
   const ref = useRef(null);

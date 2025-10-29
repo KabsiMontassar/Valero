@@ -4,9 +4,9 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Github, ArrowDown } from 'lucide-react';
 
-const MotionBox = motion(Box);
-const MotionHeading = motion(Heading);
-const MotionText = motion(Text);
+const MotionBox = motion.create(Box);
+const MotionHeading = motion.create(Heading);
+const MotionText = motion.create(Text);
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
