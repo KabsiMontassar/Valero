@@ -41,6 +41,7 @@ const Hero = () => {
     <Box
       id="hero"
       pb={10}
+      pt={10}
       display="flex"
       alignItems="center"
       justifyContent="center"
