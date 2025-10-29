@@ -1,6 +1,5 @@
-import { Box, Text, Flex, Image } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-import { gradientTextStyles, colors } from '../../theme';
+import { Box } from '@chakra-ui/react';
+
 
 const Features = () => {
   return (
