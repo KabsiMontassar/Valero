@@ -33,7 +33,7 @@ const Hero = () => {
   return (
     <Box
       id="hero"
-      minH="100vh"
+
       display="flex"
       alignItems="center"
       justifyContent="center"
