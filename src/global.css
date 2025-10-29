@@ -4,20 +4,20 @@
 
 /* Global styles for VoiceFlow */
 :root {
-  --color-primary: #7AAFCF;
-  --color-secondary: #9BBED2;
+  --color-primary: #2A6EDB;
+  --color-secondary: #7AAFCF;
   --color-text-primary: #E4E8EC;
   --color-text-muted: #A3A9AF;
-  --color-background-primary: #1C2126;
-  --color-background-secondary: #22282E;
-  --color-background-tertiary: #2B3238;
-  --color-surface: #2B3238;
+  --color-background-primary: #0D1014;
+  --color-background-secondary: #1B1F23;
+  --color-background-tertiary: #24292E;
+  --color-surface: #24292E;
   --color-border: #3A434A;
   --color-border-subtle: #2A3137;
   --color-success: #5FBFA2;
   --color-warning: #E0B85A;
   --color-error: #D97B7B;
-  --color-info: #6BA7E3;
+  --color-info: #1E5BC7;
 }
 
 * {
