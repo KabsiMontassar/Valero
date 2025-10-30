@@ -48,7 +48,7 @@ const Hero = () => {
       overflow="hidden"
       bg={colors.backgroundPrimary}
       px={{ base: 4, md: 0 }}
-      minH={{ base: '80vh', md: '100vh' }}
+      minH={{ base: '0vh', md: '100vh' }}
     >
       <motion.div
         key="hero-animation" // Force re-mount on navigation
@@ -57,7 +57,13 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}
       >
-        <Box position="relative" zIndex={20} mt={20} mb={"-100px"} px={{ base: 2, md: 0 }} >
+        <Box
+          position="relative"
+          zIndex={20}
+          mt={{ base: 10, md: 20 }}
+          mb={{ base: 0, lg: "-100px" }}
+          px={{ base: 2, md: 0 }}
+        >
           <Text
             fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl', xl: '6xl', '2xl': '7xl' }}
             fontWeight="bold"
@@ -78,7 +84,7 @@ const Hero = () => {
           display="inline-block" 
           width={{ base: '300px', sm: '600px', md: '1000px', lg: '1400px' }} 
           height={{ base: '300px', sm: '600px', md: '800px', lg: '900px' }} 
-          mt={-16}
+          
           style={{ 
             '--scale': window.innerWidth < 768 ? '0.3' : window.innerWidth < 1024 ? '0.6' : window.innerWidth < 1280 ? '0.8' : '1'
           } as React.CSSProperties}
