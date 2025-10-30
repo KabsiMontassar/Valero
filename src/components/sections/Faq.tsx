@@ -40,6 +40,7 @@ const FaqItem = ({ question, answer }: { question: string; answer: string }) => 
 
   return (
     <Box
+   
       borderBottom="1px solid"
       borderRadius={"none"}
       overflow="hidden"

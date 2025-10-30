@@ -53,20 +53,20 @@ const Contact = () => {
           style={{ position: 'relative', zIndex: 1, width: '100%', textAlign: 'center' }}
         >
           <Box position="relative" zIndex={20}>
-            <Flex
-              align="center"
-              justify="center"
+            <Box
+             
+            
               gap={5}
               fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
               fontWeight="bold"
               lineHeight="1.1"
               color={colors.textPrimary}
             >
-              <Text>Let's Talk {' '} </Text>
+              <Text>Let's Talk  </Text> 
               <Text as="span" style={gradientTextStyles}>
-                {' '} Support.
+               Support.
               </Text>
-            </Flex>
+            </Box>
           </Box>
         </motion.div>
 
