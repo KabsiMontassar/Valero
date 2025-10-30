@@ -20,14 +20,13 @@ const Layout = ({ children }: LayoutProps) => {
   };
 
   const handleMobileNavClick = (to: string) => {
-    const currentScrollY = window.scrollY;
     setIsMobileMenuOpen(false);
     // Use setTimeout to ensure menu closes before navigation
     setTimeout(() => {
       navigate(to);
-      // Restore scroll position after navigation
+      // Scroll to top after navigation
       setTimeout(() => {
-        window.scrollTo(0, currentScrollY);
+        window.scrollTo(0, 0);
       }, 100);
     }, 300);
   };
