@@ -156,9 +156,10 @@ const Footer = () => {
 
       {/* Divider */}
       <Box
-        width="80%"
-        height="1px"
-        bg="rgba(255, 255, 255, 0.2)"
+        width="100%"
+        height=".5px"
+        bg="#142552"
+        opacity={.4}
         mt={15}
         mb={8}
       />

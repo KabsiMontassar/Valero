@@ -16,7 +16,6 @@ gsap.registerPlugin(MorphSVGPlugin);
 
 const Hero = () => {
   const morphRef = useRef<SVGPathElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
   useEffect(() => {
     const tl = gsap.timeline({
@@ -41,7 +40,7 @@ const Hero = () => {
     <Box
       id="hero"
       pb={10}
-      
+
       display="flex"
       alignItems="center"
       justifyContent="center"
@@ -56,7 +55,7 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}
       >
-        <Box position="relative" zIndex={20} mt={20} mb={"-100px"} ref={textRef}>
+        <Box position="relative" zIndex={20} mt={20} mb={"-100px"} >
           <Text
             fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
             fontWeight="bold"
