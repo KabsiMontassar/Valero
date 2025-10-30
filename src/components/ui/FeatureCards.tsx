@@ -1,5 +1,6 @@
 import { Box, Text, VStack, Grid, GridItem, HStack } from '@chakra-ui/react';
 import { gradientTextStyles, colors } from '../../theme';
+import { useBreakpointValue } from '@chakra-ui/react';
 import {
     Zap,
     Users,
@@ -74,7 +75,9 @@ interface FeatureCardProps {
     };
 }
 
-const FeatureIcon = ({ icon: IconComponent }: FeatureIconProps) => (
+const FeatureIcon = ({ icon: IconComponent }: FeatureIconProps) => {
+    const iconSize = useBreakpointValue({ base: 16, md: 18 });
+    return (
     <Box
         display="flex"
         alignItems="center"
@@ -88,9 +91,12 @@ const FeatureIcon = ({ icon: IconComponent }: FeatureIconProps) => (
         mb={2}
         flexShrink={0}
     >
-        <IconComponent size={{ base: 16, md: 18 }} color="#3073da" strokeWidth={1.8} />
+        <IconComponent 
+         size={iconSize}
+        color="#3073da" strokeWidth={1.8} />
     </Box>
-);
+    );
+};
 
 
 

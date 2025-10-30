@@ -1,7 +1,6 @@
 import { Box, Text, VStack } from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
 import { gradientTextStyles, colors } from '../../theme';
-import CurvedLoop from '../ui/CurvedLoop';
 import { Plus, UserPlus, MessageCircle, Mic } from 'lucide-react';
 import FeatureCards from '../ui/FeatureCards';
 const Icon = ({ icon }: { icon: React.ComponentType<any> }) => {
@@ -112,13 +111,7 @@ const HowItWorks = () => {
       overflow="hidden"
       px={{ base: 4, md: 0 }}
     >
-      <CurvedLoop
-        marqueeText="CHAT ✦ HANG OUT ✦ TALK ✦ HAVE FUN ✦"
-        speed={0.5}
-        direction="right"
-        curveAmount={0}
-        interactive={false}
-      />
+     
 
       <VStack gap={{ base: 12, md: 16 }} pt={{ base: 12, md: 20 }} px={{ base: 4, md: 8 }}>
         <VStack gap={6} textAlign="center" maxW="800px" px={{ base: 2, md: 0 }}>

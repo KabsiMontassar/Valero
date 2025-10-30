@@ -10,6 +10,7 @@ import mic from '../../assets/mic.svg';
 import phone from '../../assets/phone.svg';
 import send from '../../assets/send.svg';
 import { innerPaths } from '../types/innerPaths';
+import CurvedLoop from '../ui/CurvedLoop';
 gsap.registerPlugin(MorphSVGPlugin);
 
 
@@ -41,7 +42,7 @@ const Hero = () => {
       id="hero"
       pb={{ base: 6, md: 10 }}
 
-      display="flex"
+
       alignItems="center"
       justifyContent="center"
       position="relative"
@@ -79,13 +80,13 @@ const Hero = () => {
         </Box>
 
         {/* Blue Layers + Center Circle */}
-        <Box 
-          position="relative" 
-          display="inline-block" 
-          width={{ base: '300px', sm: '600px', md: '1000px', lg: '1400px' }} 
-          height={{ base: '300px', sm: '600px', md: '800px', lg: '900px' }} 
-          
-          style={{ 
+        <Box
+          position="relative"
+          display="inline-block"
+          width={{ base: '300px', sm: '600px', md: '1000px', lg: '1400px' }}
+          height={{ base: '300px', sm: '600px', md: '800px', lg: '900px' }}
+
+          style={{
             '--scale': window.innerWidth < 768 ? '0.3' : window.innerWidth < 1024 ? '0.6' : window.innerWidth < 1280 ? '0.8' : '1'
           } as React.CSSProperties}
         >
@@ -256,6 +257,19 @@ const Hero = () => {
           </motion.div>
         </Box>
       </motion.div>
+      <Box
+        pt={{ base: "30px", sm: "30px", md: "40px", lg: "50px" }}
+         height={{ base: "120px", sm: "160px", md: "200px", lg: "240px" }}
+        bottom={0}>
+        <CurvedLoop
+          marqueeText="CHAT ✦ HANG OUT ✦ TALK ✦ HAVE FUN ✦"
+          speed={0.5}
+          
+          direction="right"
+          curveAmount={0}
+          interactive={false}
+        />
+      </Box>
     </Box>
   );
 };

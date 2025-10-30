@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState, useMemo, useId, type FC, type PointerEvent } from 'react';
 import { colors } from '../../theme';
+import { useBreakpointValue } from '@chakra-ui/react';
 
 interface CurvedLoopProps {
   marqueeText?: string;
@@ -20,6 +21,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   interactive = true,
   edgeFade = true
 }) => {
+  const fontSize = useBreakpointValue({ base: '8rem', md: '4rem' });
   const text = useMemo(() => {
     const hasTrailing = /\s|\u00A0$/.test(marqueeText);
     return (hasTrailing ? marqueeText.replace(/\s+$/, '') : marqueeText) + '\u00A0';
@@ -111,10 +113,10 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   return (
     <div
       className="relative flex items-center justify-center w-full py-16"
+      
       style={{
         visibility: ready ? 'visible' : 'hidden',
         cursor: cursorStyle,
-        backgroundColor: colors.backgroundPrimary,
         position: 'relative',
         overflow: 'hidden',
         ...(edgeFade && {
@@ -131,9 +133,9 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
     >
       <svg
         className="select-none w-full overflow-visible block aspect-[100/12] font-bold uppercase leading-none"
-        viewBox="0 0 1440 120"
+        viewBox="0 0 1440 12"
         style={{
-          fontSize: '4rem',
+          fontSize,
           fontFamily: 'inherit',
           fontWeight: 600,
           filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.4))', // text shadow glow
