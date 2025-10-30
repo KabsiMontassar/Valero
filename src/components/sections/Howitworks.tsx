@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { gradientTextStyles, colors } from '../../theme';
 import CurvedLoop from '../CurvedLoop';
 import { Plus, UserPlus, MessageCircle, Mic } from 'lucide-react';
+import FeatureCards from '../FeatureCards';
 const Icon = ({ icon }: { icon: React.ComponentType<any> }) => {
   const IconComponent = icon;
   return <IconComponent size={64} strokeWidth={1.5} />;
@@ -105,7 +106,6 @@ const HowItWorks = () => {
       id="howitworks"
       ref={sectionRef}
       pt={20}
-      pb={40}
       bg={colors.backgroundPrimary}
       position="relative"
       overflow="hidden"
@@ -153,7 +153,7 @@ const HowItWorks = () => {
           maxW="1100px"
           mx="auto"
           mt={20}
-          minH="1600px"
+
           py={10}
           ref={timelineRef}
         >
@@ -332,7 +332,7 @@ const HowItWorks = () => {
                     </Text>
                     <Box
                       w="100%"
-                      maxW="150px" // Constrain description width to match title area
+                      maxW="200px" // Constrain description width to match title area
                     >
                       <Text
                         className="checkpoint-description"
@@ -354,6 +354,12 @@ const HowItWorks = () => {
           </VStack>
         </Box>
       </VStack>
+
+
+
+      <FeatureCards />
+
+
     </Box>
   );
 };

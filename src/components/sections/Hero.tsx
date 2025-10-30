@@ -41,7 +41,7 @@ const Hero = () => {
     <Box
       id="hero"
       pb={10}
-      pt={10}
+      
       display="flex"
       alignItems="center"
       justifyContent="center"
@@ -56,7 +56,7 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}
       >
-        <Box position="relative" zIndex={20} mt={20} ref={textRef}>
+        <Box position="relative" zIndex={20} mt={20} mb={"-100px"} ref={textRef}>
           <Text
             fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
             fontWeight="bold"

@@ -1,0 +1,241 @@
+import { Box, Text, VStack, Grid, GridItem, HStack } from '@chakra-ui/react';
+import { gradientTextStyles, colors } from '../theme';
+import {
+    Zap,
+    Users,
+    Globe,
+    BarChart3,
+    TrendingUp,
+    Clock,
+} from 'lucide-react';
+
+const featureItems = [
+    {
+        id: 'crystal-clear-voice',
+        icon: Users,
+        title: 'Crystal Clear Voice',
+        description: 'Experience studio-quality audio with 99.9%< uptime and <100ms< latency for natural conversations.',
+    },
+    {
+        id: 'instant-messaging',
+        icon: Zap,
+        title: 'Lightning Fast Chat',
+        description: 'Messages delivered in <10ms with real-time typing indicators and read receipts.',
+    },
+    {
+        id: 'global-scale',
+        icon: Globe,
+        title: 'Global Scale',
+        description: 'Support 10,000+ concurrent users with automatic regional routing for optimal performance.',
+    },
+    {
+        id: 'cost-saving',
+        icon: TrendingUp,
+        title: '90% Cost Reduction',
+        description: 'Eliminate expensive telephony costs with browser-based voice chat that scales effortlessly.',
+    },
+    {
+        id: 'easy-setup',
+        icon: Zap,
+        title: '5-Minute Setup',
+        description: 'Get started in under 5 minutes with our plug-and-play integration and comprehensive docs.',
+    },
+    {
+        id: 'reliable',
+        icon: Clock,
+        title: 'Always Available',
+        description: '24/7 reliability with automatic failover and 99.9% service level agreement.',
+    },
+    {
+        id: 'secure',
+        icon: Users,
+        title: 'Enterprise Security',
+        description: 'End-to-end encryption and 100% compliance with data protection standards.',
+    },
+    {
+        id: 'productivity',
+        icon: BarChart3,
+        title: '3x Productivity Boost',
+        description: 'Teams report 3x faster decision-making with seamless voice and text collaboration.',
+    },
+];
+
+interface FeatureIconProps {
+    icon: React.ComponentType<any>;
+
+}
+
+interface FeatureCardProps {
+    feature: {
+        id: string;
+        icon: React.ComponentType<any>;
+        title: string;
+        description: string;
+    };
+}
+
+const FeatureIcon = ({ icon: IconComponent }: FeatureIconProps) => (
+    <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        width="32px"
+        height="32px"
+        borderRadius="md"
+        background="#FFFFFF10"
+        opacity={20}
+        position="relative"
+        mb={2}
+    >
+        <IconComponent size={18} color="#3073da" strokeWidth={1.8} />
+    </Box>
+);
+
+
+
+
+const FeatureCard = ({ feature }: FeatureCardProps) => (
+    <GridItem key={feature.id}>
+        <Box
+            py={3}
+            px={6}
+            borderRadius="2xl"
+            
+            bg={colors.backgroundSecondary +'50'}
+            height="100%"
+            transition="all 0.3s ease"
+            _hover={{
+                transform: 'translateY(-4px)',
+                boxShadow: '0 20px 60px rgba(0, 0, 0, 0.08)',
+                borderColor: colors.primary + '30',
+            }}
+            display="flex"
+            flexDirection="column"
+        >
+            <HStack
+                gap={2}
+                textAlign="center"
+            >
+                <FeatureIcon icon={feature.icon} />
+
+                <Text
+                    fontSize="md"
+                    fontWeight="bold"
+                    color={colors.secondary}
+                    mb={2}
+                >
+                    {feature.title}
+                </Text>
+            </HStack>
+
+
+            <Text
+                fontSize="xs"
+                color={colors.textPrimary}
+                lineHeight="1.7"
+                flex={1}
+                fontWeight="normal"
+            >
+                {feature.description}
+            </Text>
+        </Box>
+    </GridItem>
+);
+
+const FeatureCards = () => {
+    return (
+        <Box
+            id="features"
+            pt={28}
+            pb={32}
+            bg={colors.backgroundPrimary}
+            position="relative"
+            overflow="hidden"
+        >
+            <VStack gap={16} px={8} maxW="1200px" mx="auto">
+                {/* Header */}
+                <VStack gap={4} textAlign="center" maxW="800px">
+                    <Text
+                        fontSize="sm"
+                        fontWeight="semibold"
+                        color={colors.textPrimary}
+                        letterSpacing="wide"
+                        textTransform="uppercase"
+                    >
+                       ✦ Features
+                    </Text>
+
+                    <Box>
+                        <Text
+                            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
+                            fontWeight="bold"
+                            lineHeight="1.1"
+                            mb={6}
+                        >
+                            <Text as="span" color={colors.textPrimary}>
+                                Smarter Support.
+                            </Text>
+                            <br />
+                            <Text as="span" style={gradientTextStyles}>
+                                Real Results.
+                            </Text>
+                        </Text>
+                    </Box>
+
+                    <Text
+                        fontSize="xl"
+                        color={colors.textMuted}
+                        lineHeight="1.7"
+                        maxW="600px"
+                        fontWeight="normal"
+                    >
+                        Promptly combines powerful AI features with outcomes that help your team scale, save, and satisfy.
+                    </Text>
+                </VStack>
+
+                {/* Features Grid */}
+                <Grid
+                    templateColumns={{
+                        base: '1fr',
+                        md: 'repeat(2, 1fr)',
+                        lg: 'repeat(3, 1fr)',
+                    }}
+                    gap={3}
+                    w="100%"
+                    justifyContent="center"
+                >
+                    {/* Row 1: 2 cards, centered */}
+                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={3}>
+                        <FeatureCard feature={featureItems[0]} />
+                        <FeatureCard feature={featureItems[1]} />
+                    </GridItem>
+                    {/* Row 2: 3 cards, centered */}
+                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={3}>
+                        <FeatureCard feature={featureItems[2]} />
+                        <FeatureCard feature={featureItems[3]} />
+                        <FeatureCard feature={featureItems[4]} />
+                    </GridItem>
+                    {/* Row 3: 2 cards, centered */}
+                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={3}>
+                        <FeatureCard feature={featureItems[5]} />
+                        <FeatureCard feature={featureItems[6]} />
+                    </GridItem>
+                    {/* Row 4: 1 card, centered */}
+                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={3}>
+                        <FeatureCard feature={featureItems[7]} />
+                    </GridItem>
+                </Grid>
+            </VStack>
+        </Box>
+    );
+};
+
+export default FeatureCards;
+
+
+
+
+
+
+
+

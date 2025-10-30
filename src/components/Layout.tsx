@@ -23,8 +23,8 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Sticky Logo - Left */}
       <Box
         position="fixed"
-        top={7}
-        left={24}
+        top={5}
+        left={16}
         zIndex={1001}
         transition="all 0.3s ease"
       >
@@ -37,7 +37,7 @@ const Layout = ({ children }: LayoutProps) => {
             <Image
               src={logo}
               alt="Velaro Logo"
-              height="70px"
+              height="50px"
               width="auto"
             />
           </Box>
@@ -47,8 +47,8 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Sticky GitHub Button - Right */}
       <Box
         position="fixed"
-        top={8}
-        right={24}
+        top={6}
+        right={16}
         zIndex={1001}
         transition="all 0.3s ease"
       >
@@ -59,10 +59,10 @@ const Layout = ({ children }: LayoutProps) => {
           _hover={{ textDecoration: 'none' }}
         >
           <Button
-            size="lg"
+            size="sm"
             bg={colors.backgroundSecondary}
             color={colors.textPrimary}
-            border="2px solid"
+            border="1px solid"
             borderColor={colors.border}
             _hover={{
               borderColor: 'transparent',
@@ -75,23 +75,22 @@ const Layout = ({ children }: LayoutProps) => {
               transform: 'translateY(0) scale(1.02)',
               animation: 'rotate 2s linear infinite'
             }}
-            borderRadius="xl"
-            px={10}
-            py={6}
+            borderRadius="lg"
+            px={6}
+            py={4}
             fontWeight="600"
-            fontSize="16px"
+            fontSize="13px"
             transition="all 0.3s ease"
             display={{ base: 'none', md: 'flex' }}
             alignItems="center"
-            gap={3}
+            gap={2}
             _focus={{
               boxShadow: '0 0 0 4px rgba(42, 110, 219, 0.2)'
             }}
             className="animated-border"
           >
             <Github
-              
-              size={20}
+              size={16}
             />
             View on GitHub
           </Button>
@@ -101,27 +100,27 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Navigation - Not Sticky */}
       <Box
         bg="transparent"
-        py={6}
+        py={4}
         position="relative"
         zIndex={999}
       >
         <Container maxW="container.xl">
-          <Flex justify="center" align="center" h="80px">
+          <Flex justify="center" align="center" h="60px">
             {/* Navigation Links - Center */}
             <HStack
-              gap={12}
+              gap={8}
               display={{ base: 'none', md: 'flex' }}
               transition="all 0.3s ease"
             >
               <RouterLink to="/">
                 <Box
-                  px={4}
-                  py={3}
-                  borderRadius="lg"
+                  px={3}
+                  py={2}
+                  borderRadius="md"
                   transition="all 0.3s ease"
                   color={colors.textPrimary}
                   fontWeight="600"
-                  fontSize="24px"
+                  fontSize="16px"
                   cursor="pointer"
                   style={isActive('/') ? gradientTextStyles : undefined}
                   className="nav-item"
@@ -131,13 +130,13 @@ const Layout = ({ children }: LayoutProps) => {
               </RouterLink>
               <RouterLink to="/features">
                 <Box
-                  px={4}
-                  py={3}
-                  borderRadius="lg"
+                  px={3}
+                  py={2}
+                  borderRadius="md"
                   transition="all 0.3s ease"
                   color={colors.textPrimary}
                   fontWeight="600"
-                  fontSize="24px"
+                  fontSize="16px"
                   cursor="pointer"
                   style={isActive('/features') ? gradientTextStyles : undefined}
                   className="nav-item"
@@ -147,13 +146,13 @@ const Layout = ({ children }: LayoutProps) => {
               </RouterLink>
               <RouterLink to="/contact">
                 <Box
-                  px={4}
-                  py={3}
-                  borderRadius="lg"
+                  px={3}
+                  py={2}
+                  borderRadius="md"
                   transition="all 0.3s ease"
                   color={colors.textPrimary}
                   fontWeight="600"
-                  fontSize="24px"
+                  fontSize="16px"
                   cursor="pointer"
                   style={isActive('/contact') ? gradientTextStyles : undefined}
                   className="nav-item"
