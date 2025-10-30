@@ -61,8 +61,8 @@ const Features = () => {
   return (
     <Box
       id="features"
-      pt={20}
-      pb={20}
+      pt={{ base: 12, md: 20 }}
+      pb={{ base: 12, md: 20 }}
       position="relative"
       overflow="hidden"
       minH="100vh"
@@ -70,8 +70,8 @@ const Features = () => {
       alignItems="center"
       justifyContent="center"
     >
-      <Box maxW="1100px" w="100%" px={8}>
-        <VStack gap={16} align="stretch">
+      <Box maxW="1100px" w="100%" px={{ base: 4, md: 8 }}>
+        <VStack gap={{ base: 8, md: 12, lg: 16 }} align="stretch">
 
 
 
@@ -80,7 +80,7 @@ const Features = () => {
               key={feature.id}
               className="feature-section"
               bg={colors.backgroundPrimary}
-              borderRadius="2xl"
+              borderRadius={{ base: 'xl', md: '2xl' }}
               border="1px solid"
               borderColor="white"
               overflow="hidden"
@@ -101,13 +101,14 @@ const Features = () => {
               }}
 
             >
-              <Flex minH="500px">
+              <Flex direction={{ base: 'column', md: 'row' }} minH={{ base: 'auto', md: '500px' }}>
                 {/* Left Half - Content */}
                 <Box
-                  flex="1"
-                  p={8}
+                  flex={{ base: 'auto', md: 1 }}
+                  p={{ base: 4, md: 8 }}
                   display="flex"
                   alignItems="center"
+                  minH={{ base: 'auto', md: 'inherit' }}
                 >
                   <VStack align="flex-start" gap={3} maxW="400px">
                     {/* Icon */}
@@ -115,14 +116,14 @@ const Features = () => {
                       bg={colors.backgroundSecondary + "70"}
                       borderRadius="md"
                       p={2}
-                      fontSize="4xl">
+                      fontSize={{ base: '3xl', md: '4xl' }}>
                       <feature.icon size={28} />
                     </Box>
 
                     {/* Title with gradient */}
                     <Text
-                      fontSize={{ base: 'xl', md: '2xl', lg: '3xl' }}
-
+                      fontSize={{ base: 'lg', md: 'xl', lg: '2xl', xl: '3xl' }}
+                      fontWeight="bold"
 
                       style={gradientTextStyles}
                     >
@@ -131,8 +132,9 @@ const Features = () => {
 
                     {/* Description */}
                     <Text
-                      fontSize="md"
+                      fontSize={{ base: 'sm', md: 'md' }}
                       color={colors.textMuted}
+                      lineHeight="1.6"
 
                     >
                       {feature.description}
@@ -141,7 +143,7 @@ const Features = () => {
                 </Box>
 
                 {/* Right Half - Image */}
-                <Box flex="1" position="relative" overflow="hidden">
+                <Box flex={{ base: 'auto', md: 1 }} position="relative" overflow="hidden" minH={{ base: '200px', md: 'inherit' }}>
                   <Image
                     src={feature.image}
                     alt={feature.title}

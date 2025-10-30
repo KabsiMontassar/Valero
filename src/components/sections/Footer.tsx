@@ -38,6 +38,7 @@ const Footer = () => {
       flexDirection="column"
       alignItems="center"
       position="relative"
+      width="full"
       px={{ base: 4, md: 0 }}
     >
       <Box id="footer-morpher-animation" position="relative" width="100%" height={{ base: '120px', sm: '150px', md: '250px' }}>

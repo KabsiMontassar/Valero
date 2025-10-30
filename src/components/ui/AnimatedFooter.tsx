@@ -189,7 +189,7 @@ const AnimatedFooter = () => {
                         src={logo}
                         alt="Promptly Logo"
                         width={{ base: '95%', md: '85%' }}
-                        maxW="400px"
+                        maxW="1000px"
                         style={{ transformStyle: "preserve-3d" }}
                     />
 

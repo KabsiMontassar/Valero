@@ -8,11 +8,12 @@ const Demo = () => {
       direction="column"
       align="center"
       justify="center"
-      pt={20}
-      pb={20}
+      pt={{ base: 12, md: 20 }}
+      pb={{ base: 12, md: 20 }}
       position="relative"
       overflow="hidden"
-      minH="80vh"
+      minH={{ base: '60vh', md: '80vh' }}
+      px={{ base: 4, md: 0 }}
     >
       {/* Content */}
       <motion.div
@@ -21,16 +22,17 @@ const Demo = () => {
         transition={{ duration: 0.8 }}
         style={{ position: 'relative', zIndex: 1, width: '100%', textAlign: 'center' }}
       >
-        <Box position="relative" zIndex={20} mb={12}>
+        <Box position="relative" zIndex={20} mb={{ base: 6, md: 12 }}>
           <Flex
             direction="column"
             align="center"
             justify="center"
             gap={1}
-            fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
+            fontSize={{ base: 'xl', sm: '2xl', md: '4xl', lg: '6xl', xl: '7xl' }}
             fontWeight="bold"
             lineHeight="1.1"
             color={colors.textPrimary}
+            px={{ base: 2, md: 0 }}
           >
             <Text>See Valero</Text>
             <Text as="span" style={gradientTextStyles}>
@@ -47,7 +49,7 @@ const Demo = () => {
         style={{ position: 'relative', zIndex: 1, width: '100%' }}
        
       >
-        <Box textAlign="center"  >
+        <Box textAlign="center" width="100%" px={{ base: 2, md: 4 }}>
           {/* macOS Style Window */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -56,8 +58,8 @@ const Demo = () => {
           >
             <Box
               position="relative"
-              width={{ base: "90%", md: "600px", lg: "800px" }}
-              height={{ base: "200px", md: "300px", lg: "400px" }}
+              width={{ base: "100%", md: "600px", lg: "800px" }}
+              height={{ base: "180px", sm: "240px", md: "300px", lg: "400px" }}
               mx="auto"
               bg={colors.backgroundSecondary}
               borderRadius="md"
@@ -87,14 +89,14 @@ const Demo = () => {
               {/* macOS Window Controls */}
               <Flex
                 position="absolute"
-                top={2}
-                left={3}
-                gap={2}
+                top={{ base: 1, md: 2 }}
+                left={{ base: 2, md: 3 }}
+                gap={{ base: 1, md: 2 }}
                 zIndex={2}
               >
-                <Box w="7px" h="7px" borderRadius="50%" bg="#FF5F57" />
-                <Box w="7px" h="7px" borderRadius="50%" bg="#FFBD2E" />
-                <Box w="7px" h="7px" borderRadius="50%" bg="#28CA42" />
+                <Box w={{ base: '5px', md: '7px' }} h={{ base: '5px', md: '7px' }} borderRadius="50%" bg="#FF5F57" />
+                <Box w={{ base: '5px', md: '7px' }} h={{ base: '5px', md: '7px' }} borderRadius="50%" bg="#FFBD2E" />
+                <Box w={{ base: '5px', md: '7px' }} h={{ base: '5px', md: '7px' }} borderRadius="50%" bg="#28CA42" />
               </Flex>
 
               {/* Window Content */}
@@ -103,7 +105,7 @@ const Demo = () => {
                 width="100%"
                 height="100%"
                 bg={colors.backgroundPrimary}
-                pt={5}
+                pt={{ base: 3, md: 5 }}
               >
                 <Image
                   src="https://picsum.photos/800/400?random=1"
