@@ -1,9 +1,8 @@
 import { Box, Text, VStack } from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
-import { gradientTextStyles, colors  , gradientBackgroundStyles} from '../../theme';
+import { gradientTextStyles, colors } from '../../theme';
 import CurvedLoop from '../CurvedLoop';
 import { Plus, UserPlus, MessageCircle, Mic } from 'lucide-react';
-// ===== SVG ICONS ===== //
 const Icon = ({ icon }: { icon: React.ComponentType<any> }) => {
   const IconComponent = icon;
   return <IconComponent size={64} strokeWidth={1.5} />;
@@ -13,59 +12,72 @@ const checkpoints = [
     id: 'Create',
     number: '01',
     title: 'Create',
-    description: 'User creates a new room.',
+    description: 'Start by creating your own community or team hub.',
     icon: Plus
   },
   {
-    id: 'Invite',
+    id: 'Connect',
     number: '02',
-    title: 'Invite',
-    description: 'User invites others to join the room.',
+    title: 'Connect',
+    description: 'Invite friends, teammates, or members to join your space.',
     icon: UserPlus
   },
   {
-    id: 'Chat',
+    id: 'Collaborate',
     number: '03',
-    title: 'Chat',
-    description: 'User chats with others in the room.',
+    title: 'Collaborate',
+    description: 'Exchange messages and ideas in your channels.',
     icon: MessageCircle
   },
   {
-    id: 'Talk',
+    id: 'Communicate',
     number: '04',
-    title: 'Talk',
-    description: 'User talks and interacts with others.',
+    title: 'Communicate',
+    description: 'Jump into voice channels to stay in sync in real time.',
     icon: Mic
   }
 ];
+
+
 
 const HowItWorks = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const drawLineRef = useRef<HTMLDivElement>(null);
+  const greyLineRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     const timeline = timelineRef.current;
     const drawLine = drawLineRef.current;
+    const greyLine = greyLineRef.current;
     const items = itemsRef.current;
 
-    if (!timeline || !drawLine) return;
+    if (!timeline || !drawLine || !greyLine) return;
 
     const handleScroll = () => {
       const windowDistance = window.scrollY;
       const windowHeight = window.innerHeight / 2;
       const timelineDistance = timeline.getBoundingClientRect().top + window.scrollY;
-      const greyLineHeight = timeline.scrollHeight;
 
-      // Calculate line height based on scroll position
+      // Calculate the position of the last checkpoint
+      const lastItem = items[items.length - 1];
+      const lastCheckpointPosition = lastItem ?
+        lastItem.getBoundingClientRect().top + window.scrollY - timelineDistance + lastItem.offsetHeight / 2 :
+        timeline.scrollHeight;
+
+      // Calculate line height based on scroll position, but cap it at the last checkpoint
       if (windowDistance >= timelineDistance - windowHeight) {
         const line = windowDistance - timelineDistance + windowHeight;
+        const maxLineHeight = Math.min(lastCheckpointPosition, timeline.scrollHeight);
 
-        if (line <= greyLineHeight) {
-          drawLine.style.height = `${Math.max(0, line + 20)}px`;
+        if (line <= maxLineHeight) {
+          const currentHeight = Math.max(0, line);
+          drawLine.style.height = `${currentHeight}px`;
+          greyLine.style.height = `${currentHeight}px`;
         } else {
-          drawLine.style.height = `${greyLineHeight}px`;
+          drawLine.style.height = `${maxLineHeight}px`;
+          greyLine.style.height = `${maxLineHeight}px`;
         }
       }
 
@@ -147,14 +159,15 @@ const HowItWorks = () => {
         >
           {/* Static/Grey line */}
           <Box
+            ref={greyLineRef}
             position="absolute"
             left="50%"
             top="0"
-            bottom="0"
             w="1px"
             bg={colors.border}
             transform="translateX(-50%)"
             borderRadius="2px"
+            height="0"
           />
 
           {/* Animated/Draw line */}
