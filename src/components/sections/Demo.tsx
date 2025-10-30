@@ -34,11 +34,31 @@ const Demo = () => {
             color={colors.textPrimary}
             px={{ base: 2, md: 0 }}
           >
-            <Text>See Valero</Text>
+            <Text>Experience Real-time</Text>
             <Text as="span" style={gradientTextStyles}>
-              in action
+              Voice & Chat
             </Text>
           </Flex>
+          <Box position="relative" zIndex={10}>
+            <Text
+              fontSize={{ base: 'sm', md: 'md' }}
+              fontWeight="400"
+              color={colors.textMuted}
+              mt={{ base: 2, md: 4 }}
+            >
+              See how Valero delivers crystal-clear audio and instant messaging in one seamless platform.
+            </Text>
+          </Box>
+          <Box position="relative" zIndex={10}>
+            <Text
+              fontSize={{ base: 'sm', md: 'md' }}
+              fontWeight="400"
+              color={colors.textMuted}
+              mt={{ base: 1, md: 2 }}
+            >
+               See the interface preview below..
+            </Text>
+          </Box>
         </Box>
       </motion.div>
 
@@ -47,7 +67,7 @@ const Demo = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         style={{ position: 'relative', zIndex: 1, width: '100%' }}
-       
+
       >
         <Box textAlign="center" width="100%" px={{ base: 2, md: 4 }}>
           {/* macOS Style Window */}

@@ -65,13 +65,13 @@ const Footer = () => {
           left={{ base: '2%', sm: '5%', md: '20%' }}
           top="50%"
           transform="translateY(-50%)"
-          display={{ base: 'none', lg: 'flex' }}
-          gap={{ base: '12px', md: '30px' }}
+          display={{ base: 'flex', lg: 'flex' }}
+          gap={{ base: '8px', sm: '12px', md: '30px' }}
           zIndex={1}
         >
-          <Image src={messagecirc} boxSize={{ base: '32px', md: '56px' }} />
-          <Image src={mic} boxSize={{ base: '32px', md: '56px' }} />
-          <Image src={phone} boxSize={{ base: '32px', md: '56px' }} />
+          <Image src={messagecirc} boxSize={{ base: '24px', sm: '32px', md: '56px' }} />
+          <Image src={mic} boxSize={{ base: '24px', sm: '32px', md: '56px' }} />
+          <Image src={phone} boxSize={{ base: '24px', sm: '32px', md: '56px' }} />
         </Box>
 
         {/* Center morphing SVG with circular glow */}
@@ -132,13 +132,13 @@ const Footer = () => {
           right={{ base: '2%', sm: '5%', md: '20%' }}
           top="50%"
           transform="translateY(-50%)"
-          display={{ base: 'none', lg: 'flex' }}
-          gap={{ base: '12px', md: '30px' }}
+          display={{ base: 'flex', lg: 'flex' }}
+          gap={{ base: '8px', sm: '12px', md: '30px' }}
           zIndex={1}
         >
-          <Image src={messagerec} boxSize={{ base: '32px', md: '56px' }} />
-          <Image src={send} boxSize={{ base: '32px', md: '56px' }} />
-          <Image src={messagecirc} boxSize={{ base: '32px', md: '56px' }} />
+          <Image src={messagerec} boxSize={{ base: '24px', sm: '32px', md: '56px' }} />
+          <Image src={send} boxSize={{ base: '24px', sm: '32px', md: '56px' }} />
+          <Image src={messagecirc} boxSize={{ base: '24px', sm: '32px', md: '56px' }} />
         </Box>
       </Box>
 

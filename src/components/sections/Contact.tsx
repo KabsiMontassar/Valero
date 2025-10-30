@@ -3,7 +3,7 @@ import colors, { gradientTextStyles } from '../../theme';
 import { motion } from 'framer-motion';
 import { MapPin, Mail, Clock, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
-import ContactCards from '../../components/ContactCards';
+import ContactCards from '../ui/ContactCards';
 
 const Contact = () => {
   const [selectedSubject, setSelectedSubject] = useState('');

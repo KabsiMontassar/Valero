@@ -1,6 +1,6 @@
 import { Box, Container, Flex, HStack, Button, Link, Image, VStack } from '@chakra-ui/react';
 import { type ReactNode, useState } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { Github, Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { colors, gradientTextStyles } from '../theme';
@@ -12,14 +12,24 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isActive = (path: string) => {
     return location.pathname === path;
   };
 
-  const handleNavClick = () => {
+  const handleMobileNavClick = (to: string) => {
+    const currentScrollY = window.scrollY;
     setIsMobileMenuOpen(false);
+    // Use setTimeout to ensure menu closes before navigation
+    setTimeout(() => {
+      navigate(to);
+      // Restore scroll position after navigation
+      setTimeout(() => {
+        window.scrollTo(0, currentScrollY);
+      }, 100);
+    }, 300);
   };
 
 
@@ -244,72 +254,66 @@ const Layout = ({ children }: LayoutProps) => {
                 py={4}
                 px={0}
               >
-                <RouterLink to="/">
-                  <Box
-                    px={6}
-                    py={4}
-                    transition="all 0.3s ease"
-                    color={isActive('/') ? colors.primary : colors.textPrimary}
-                    fontWeight="600"
-                    fontSize="16px"
-                    cursor="pointer"
-                    style={isActive('/') ? gradientTextStyles : undefined}
-                    className="nav-item"
-                    onClick={handleNavClick}
-                    _hover={{
-                      color: colors.primary,
-                      paddingRight: '24px',
-                    }}
-                    borderRight="4px solid"
-                    borderRightColor={isActive('/') ? colors.primary : 'transparent'}
-                  >
-                    Home
-                  </Box>
-                </RouterLink>
-                <RouterLink to="/features">
-                  <Box
-                    px={6}
-                    py={4}
-                    transition="all 0.3s ease"
-                    color={isActive('/features') ? colors.primary : colors.textPrimary}
-                    fontWeight="600"
-                    fontSize="16px"
-                    cursor="pointer"
-                    style={isActive('/features') ? gradientTextStyles : undefined}
-                    className="nav-item"
-                    onClick={handleNavClick}
-                    _hover={{
-                      color: colors.primary,
-                      paddingRight: '24px',
-                    }}
-                    borderRight="4px solid"
-                    borderRightColor={isActive('/features') ? colors.primary : 'transparent'}
-                  >
-                    Features
-                  </Box>
-                </RouterLink>
-                <RouterLink to="/contact">
-                  <Box
-                    px={6}
-                    py={4}
-                    transition="all 0.3s ease"
-                    color={isActive('/contact') ? colors.primary : colors.textPrimary}
-                    fontWeight="600"
-                    fontSize="16px"
-                    cursor="pointer"
-                    style={isActive('/contact') ? gradientTextStyles : undefined}
-                    className="nav-item"
-                    onClick={handleNavClick}
-                    _hover={{
-                      color: colors.primary,
-                      paddingRight: '24px',
-                    }}
-                    borderRight="4px solid"
-                    borderRightColor={isActive('/contact') ? colors.primary : 'transparent'}
-                  >
-                    Contact
-                  </Box>
-                </RouterLink>
+                <Box
+                  px={6}
+                  py={4}
+                  transition="all 0.3s ease"
+                  color={isActive('/') ? colors.primary : colors.textPrimary}
+                  fontWeight="600"
+                  fontSize="16px"
+                  cursor="pointer"
+                  style={isActive('/') ? gradientTextStyles : undefined}
+                  className="nav-item"
+                  onClick={() => handleMobileNavClick('/')}
+                  _hover={{
+                    color: colors.primary,
+                    paddingRight: '24px',
+                  }}
+                  borderRight="4px solid"
+                  borderRightColor={isActive('/') ? colors.primary : 'transparent'}
+                >
+                  Home
+                </Box>
+                <Box
+                  px={6}
+                  py={4}
+                  transition="all 0.3s ease"
+                  color={isActive('/features') ? colors.primary : colors.textPrimary}
+                  fontWeight="600"
+                  fontSize="16px"
+                  cursor="pointer"
+                  style={isActive('/features') ? gradientTextStyles : undefined}
+                  className="nav-item"
+                  onClick={() => handleMobileNavClick('/features')}
+                  _hover={{
+                    color: colors.primary,
+                    paddingRight: '24px',
+                  }}
+                  borderRight="4px solid"
+                  borderRightColor={isActive('/features') ? colors.primary : 'transparent'}
+                >
+                  Features
+                </Box>
+                <Box
+                  px={6}
+                  py={4}
+                  transition="all 0.3s ease"
+                  color={isActive('/contact') ? colors.primary : colors.textPrimary}
+                  fontWeight="600"
+                  fontSize="16px"
+                  cursor="pointer"
+                  style={isActive('/contact') ? gradientTextStyles : undefined}
+                  className="nav-item"
+                  onClick={() => handleMobileNavClick('/contact')}
+                  _hover={{
+                    color: colors.primary,
+                    paddingRight: '24px',
+                  }}
+                  borderRight="4px solid"
+                  borderRightColor={isActive('/contact') ? colors.primary : 'transparent'}
+                >
+                  Contact
+                </Box>
               </VStack>
 
               {/* GitHub Button at bottom */}

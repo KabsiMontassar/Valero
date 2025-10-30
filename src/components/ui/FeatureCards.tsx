@@ -97,7 +97,7 @@ const FeatureCards = () => {
         <Box
             id="features"
             pt={{ base: 16, md: 28 }}
-            pb={{ base: 20, md: 32 }}
+            pb={{ base: 5, md: 32 }}
             bg={colors.backgroundPrimary}
             position="relative"
             overflow="hidden"

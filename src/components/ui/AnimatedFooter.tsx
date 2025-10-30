@@ -94,6 +94,7 @@ const AnimatedFooter = () => {
                     width="100%"
                     maxW="1000px"
                     mx="auto"
+                    justifyItems={{ base: 'start', lg: 'center' }}
                 >
                     {/* Product Column */}
                     <VStack align="start" gap={4}>
@@ -140,7 +141,7 @@ const AnimatedFooter = () => {
                     </VStack>
 
                     {/* Social Column - Hidden on Mobile, shown on Tablet+ */}
-                    <VStack align="start" gap={4} display={{ base: 'none', md: 'flex' }}>
+                    <VStack align="start" gap={4} display={{ base: 'flex', md: 'flex' }}>
                         <Text fontSize={{ base: 'xs', md: 'sm' }} fontWeight="semibold" color="white" letterSpacing="wide">
                             Social
                         </Text>
@@ -188,7 +189,7 @@ const AnimatedFooter = () => {
                     mt={1}
                     width="100%"
                     pt={3}
-                    borderTop="1px solid rgba(255, 255, 255, 0.1)"
+                    borderTop="1px solid rgba(255, 2tyl 255, 0.1)"
                     position="relative"
                     zIndex={1}
                 >
