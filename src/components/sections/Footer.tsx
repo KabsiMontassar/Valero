@@ -38,13 +38,14 @@ const Footer = () => {
       flexDirection="column"
       alignItems="center"
       position="relative"
+      px={{ base: 4, md: 0 }}
     >
-      <Box id="footer-morpher-animation" position="relative" width="100%" height="250px">
+      <Box id="footer-morpher-animation" position="relative" width="100%" height={{ base: '120px', sm: '150px', md: '250px' }}>
         {/* Horizontal line */}
         <Box
           position="absolute"
-          left="20%"
-          right="20%"
+          left={{ base: '2%', sm: '5%', md: '20%' }}
+          right={{ base: '2%', sm: '5%', md: '20%' }}
           top="50%"
           height="2px"
           bg="linear-gradient(to right, #2A6EDB, #7AAFCF)"
@@ -56,16 +57,16 @@ const Footer = () => {
         {/* Left icons */}
         <Box
           position="absolute"
-          left="20%"
+          left={{ base: '2%', sm: '5%', md: '20%' }}
           top="50%"
           transform="translateY(-50%)"
-          display="flex"
-          gap="30px"
+          display={{ base: 'none', lg: 'flex' }}
+          gap={{ base: '12px', md: '30px' }}
           zIndex={1}
         >
-          <Image src={messagecirc} boxSize="56px" />
-          <Image src={mic} boxSize="56px" />
-          <Image src={phone} boxSize="56px" />
+          <Image src={messagecirc} boxSize={{ base: '32px', md: '56px' }} />
+          <Image src={mic} boxSize={{ base: '32px', md: '56px' }} />
+          <Image src={phone} boxSize={{ base: '32px', md: '56px' }} />
         </Box>
 
         {/* Center morphing SVG with circular glow */}
@@ -74,8 +75,8 @@ const Footer = () => {
           top="50%"
           left="50%"
           transform="translate(-50%, -50%)"
-          width="300px"
-          height="300px"
+          width={{ base: '80px', sm: '120px', md: '300px' }}
+          height={{ base: '80px', sm: '120px', md: '300px' }}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -123,23 +124,23 @@ const Footer = () => {
         {/* Right icons */}
         <Box
           position="absolute"
-          right="20%"
+          right={{ base: '2%', sm: '5%', md: '20%' }}
           top="50%"
           transform="translateY(-50%)"
-          display="flex"
-          gap="30px"
+          display={{ base: 'none', lg: 'flex' }}
+          gap={{ base: '12px', md: '30px' }}
           zIndex={1}
         >
-          <Image src={messagerec} boxSize="56px" />
-          <Image src={send} boxSize="56px" />
-          <Image src={messagecirc} boxSize="56px" />
+          <Image src={messagerec} boxSize={{ base: '32px', md: '56px' }} />
+          <Image src={send} boxSize={{ base: '32px', md: '56px' }} />
+          <Image src={messagecirc} boxSize={{ base: '32px', md: '56px' }} />
         </Box>
       </Box>
 
       {/* Footer text */}
-      <Box mt={8} mb={12} textAlign="center" px={4} zIndex={1}>
+      <Box mt={{ base: 4, md: 8 }} mb={{ base: 8, md: 12 }} textAlign="center" px={{ base: 2, md: 4 }} zIndex={1}>
         <Text
-          fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+          fontSize={{ base: 'lg', sm: '2xl', md: '4xl', lg: '5xl' }}
           fontWeight="bold"
           lineHeight="1.1"
           mb={6}

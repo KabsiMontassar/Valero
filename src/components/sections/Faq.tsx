@@ -52,14 +52,15 @@ const FaqItem = ({ question, answer }: { question: string; answer: string }) => 
         transition={{ duration: 0.2 }}
       >
         <Flex
-          p={6}
+          p={{ base: 4, md: 6 }}
           w="full"
           justify="space-between"
           align="start"
+          gap={3}
           _hover={{ bg: colors.primary + "10" }}
         >
           <Text
-            fontSize="lg"
+            fontSize={{ base: 'md', md: 'lg' }}
             fontWeight="400"
             color={colors.textPrimary}
             textAlign="left"
@@ -70,6 +71,7 @@ const FaqItem = ({ question, answer }: { question: string; answer: string }) => 
           <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
+            style={{ flexShrink: 0 }}
           >
             <ChevronDown size={24} color={colors.primary + "60"} />
           </motion.div>
@@ -85,8 +87,8 @@ const FaqItem = ({ question, answer }: { question: string; answer: string }) => 
             transition={{ duration: 0.3, ease: "easeInOut" }}
             style={{ overflow: "hidden" }}
           >
-            <Box px={6} py={6} textAlign={"start"}>
-              <Text fontSize={"md"}   fontWeight="400" color={colors.textMuted} lineHeight="1.6">
+            <Box px={{ base: 4, md: 6 }} py={{ base: 4, md: 6 }} textAlign={"start"}>
+              <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight="400" color={colors.textMuted} lineHeight="1.6">
                 {answer}
               </Text>
             </Box>
@@ -104,9 +106,9 @@ const Faq = () => {
 
   return (
     <Box id="faq" pt={10} pb={20} display="flex" bg={bggradient} alignItems="center" justifyContent="center">
-      <VStack textAlign="center" maxW="1000px" w="full" px={8}>
+      <VStack textAlign="center" maxW="1000px" w="full" px={{ base: 4, md: 8 }}>
         <Text
-          fontSize="md"
+          fontSize={{ base: 'xs', md: 'md' }}
           fontWeight="medium"
           color={colors.textPrimary}
           letterSpacing="wide"
@@ -117,7 +119,7 @@ const Faq = () => {
 
         <Box>
           <Text
-            fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+            fontSize={{ base: 'xl', sm: '2xl', md: '3xl', lg: '4xl' }}
             fontWeight="bold"
             textAlign="center"
           >

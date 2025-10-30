@@ -27,13 +27,13 @@ const ContactCards: React.FC<ContactCardsProps> = ({ contacts }) => {
         >
 
             <Box p={8} h="full">
-                <Flex direction={{ base: 'column', md: 'row' }} gap="5rem" h="full">
+                <Flex direction={{ base: 'column', md: 'row' }} gap={{ base: '1.5rem', md: '5rem' }} w="full">
                     {contacts.map((contact, index) => (
                         <VStack
 
 
-                            minW="450px"
-                            h="120px"
+                            w="full"
+                            minH={{ base: 'auto', md: '120px' }}
                             bg={colors.primary + "20"}
                             borderRadius="md"
                             overflow="hidden"

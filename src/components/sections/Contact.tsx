@@ -82,8 +82,8 @@ const Contact = () => {
             p={0}
           >
             <VStack gap={8}>
-              <Box gap={4} minW={"xl"}>
-                <Box gap={4} >
+              <Flex direction={{ base: 'column', md: 'row' }} gap={4} w="full">
+                <Box flex="1">
                   <Text mb={3} fontSize="md" fontWeight="semibold" color={colors.textPrimary}>
                     Full Name
                   </Text>
@@ -103,8 +103,8 @@ const Contact = () => {
                     _hover={{ borderColor: colors.primary }}
                   />
                 </Box>
-                <Box >
-                  <Text my={3} fontSize="md" fontWeight="semibold" color={colors.textPrimary}>
+                <Box flex="1">
+                  <Text mb={3} fontSize="md" fontWeight="semibold" color={colors.textPrimary}>
                     Email
                   </Text>
                   <Input
@@ -123,7 +123,7 @@ const Contact = () => {
                     _hover={{ borderColor: colors.primary }}
                   />
                 </Box>
-              </Box>
+              </Flex>
 
               <Box w="full">
                 <Text mb={3} fontSize="md" fontWeight="semibold" color={colors.textPrimary}>

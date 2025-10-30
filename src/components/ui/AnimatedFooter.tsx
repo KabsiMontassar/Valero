@@ -1,4 +1,4 @@
-import { Box, Text, Image, VStack, HStack } from '@chakra-ui/react';
+import { Box, Text, Image, VStack } from '@chakra-ui/react';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -65,15 +65,16 @@ const AnimatedFooter = () => {
         <Box
             ref={footerRef}
             width="100%"
-            px={8}
-            pt={12}
+            px={{ base: 4, md: 8 }}
+            pt={{ base: 8, md: 12 }}
+            pb={{ base: 8, md: 12 }}
             position="relative"
             overflow={"hidden"}
             justifyContent={"center"}
             alignItems={"center"}
         >
 
-            <VStack gap={8}
+            <VStack gap={{ base: 6, md: 8 }}
                 maxW="1200px"
                 mx="auto"
                 align="center"        // center everything horizontally
@@ -81,22 +82,22 @@ const AnimatedFooter = () => {
                 {/* Links Section */}
                 <Box
                     display="grid"
-                    gridTemplateColumns={{ base: '1fr', md: 'repeat(4, 1fr)' }}
-                    gap={8}
+                    gridTemplateColumns={{ base: '1fr 1fr', md: 'repeat(4, 1fr)' }}
+                    gap={{ base: 6, md: 8 }}
                     width="100%"
                     maxW="1000px"
                     mx="auto"
                 >
                     {/* Product Column */}
                     <VStack align="start" gap={4}>
-                        <Text fontSize="sm" fontWeight="semibold" color="white" letterSpacing="wide">
+                        <Text fontSize={{ base: 'xs', md: 'sm' }} fontWeight="semibold" color="white" letterSpacing="wide">
                             Product
                         </Text>
                         <VStack align="start" gap={3}>
                             {['Home', 'Features', 'Resources'].map((item) => (
                                 <Text
                                     key={item}
-                                    fontSize="sm"
+                                    fontSize={{ base: 'xs', md: 'sm' }}
                                     color="rgba(255, 255, 255, 0.7)"
                                     cursor="pointer"
                                     _hover={{ color: "white" }}
@@ -110,14 +111,14 @@ const AnimatedFooter = () => {
 
                     {/* Template Column */}
                     <VStack align="start" gap={4}>
-                        <Text fontSize="sm" fontWeight="semibold" color="white" letterSpacing="wide">
+                        <Text fontSize={{ base: 'xs', md: 'sm' }} fontWeight="semibold" color="white" letterSpacing="wide">
                             Template
                         </Text>
                         <VStack align="start" gap={3}>
                             {['Style Guide', 'Instructions', 'Components', 'Changelog', 'Licenses'].map((item) => (
                                 <Text
                                     key={item}
-                                    fontSize="sm"
+                                    fontSize={{ base: 'xs', md: 'sm' }}
                                     color="rgba(255, 255, 255, 0.7)"
                                     cursor="pointer"
                                     _hover={{ color: "white" }}
@@ -129,16 +130,16 @@ const AnimatedFooter = () => {
                         </VStack>
                     </VStack>
 
-                    {/* Company Column */}
-                    <VStack align="start" gap={4}>
-                        <Text fontSize="sm" fontWeight="semibold" color="white" letterSpacing="wide">
+                    {/* Company Column - Hidden on Mobile, shown on Tablet+ */}
+                    <VStack align="start" gap={4} display={{ base: 'none', md: 'flex' }}>
+                        <Text fontSize={{ base: 'xs', md: 'sm' }} fontWeight="semibold" color="white" letterSpacing="wide">
                             Company
                         </Text>
                         <VStack align="start" gap={3}>
                             {['Contact', 'Privacy Policy', 'Terms of Service', '404', 'Password'].map((item) => (
                                 <Text
                                     key={item}
-                                    fontSize="sm"
+                                    fontSize={{ base: 'xs', md: 'sm' }}
                                     color="rgba(255, 255, 255, 0.7)"
                                     cursor="pointer"
                                     _hover={{ color: "white" }}
@@ -150,16 +151,16 @@ const AnimatedFooter = () => {
                         </VStack>
                     </VStack>
 
-                    {/* Social Column */}
-                    <VStack align="start" gap={4}>
-                        <Text fontSize="sm" fontWeight="semibold" color="white" letterSpacing="wide">
+                    {/* Social Column - Hidden on Mobile, shown on Tablet+ */}
+                    <VStack align="start" gap={4} display={{ base: 'none', md: 'flex' }}>
+                        <Text fontSize={{ base: 'xs', md: 'sm' }} fontWeight="semibold" color="white" letterSpacing="wide">
                             Social
                         </Text>
                         <VStack align="start" gap={3}>
                             {['Facebook', 'LinkedIn', 'X', 'YouTube'].map((item) => (
                                 <Text
                                     key={item}
-                                    fontSize="sm"
+                                    fontSize={{ base: 'xs', md: 'sm' }}
                                     color="rgba(255, 255, 255, 0.7)"
                                     cursor="pointer"
                                     _hover={{ color: "white" }}
@@ -187,7 +188,8 @@ const AnimatedFooter = () => {
                         ref={logoRef}
                         src={logo}
                         alt="Promptly Logo"
-                        width="85%"
+                        width={{ base: '95%', md: '85%' }}
+                        maxW="400px"
                         style={{ transformStyle: "preserve-3d" }}
                     />
 
@@ -202,17 +204,17 @@ const AnimatedFooter = () => {
                     position="relative"
                     zIndex={1}
                 >
-                    <HStack
-                        justify="space-between"
+                    <VStack
+                        justify="center"
                         align="center"
-                        flexWrap="wrap"
-                        gap={6}
-                        fontSize="sm"
+                        gap={{ base: 2, md: 6 }}
+                        fontSize={{ base: 'xs', md: 'sm' }}
                         color="rgba(255, 255, 255, 0.6)"
+                        display={{ base: 'flex', md: 'flex' }}
                     >
-                        <Text>© 2025 Valero. All right reserved.</Text>
-                        <Text>Created by Montassar</Text>
-                    </HStack>
+                        <Text textAlign="center">© 2025 Valero. All right reserved.</Text>
+                        <Text display={{ base: 'none', md: 'block' }}>Created by Montassar</Text>
+                    </VStack>
                 </Box>
 
 
