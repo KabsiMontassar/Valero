@@ -44,21 +44,18 @@ const FaqItem = ({ question, answer }: { question: string; answer: string }) => 
       borderRadius={"none"}
       overflow="hidden"
       borderColor={colors.primary + "30"}
-
-
-
+   
     >
       <motion.div
+        onClick={() => setIsOpen(!isOpen)}
+        style={{ cursor: "pointer" }}
         transition={{ duration: 0.2 }}
       >
         <Flex
-          as="button"
-          onClick={() => setIsOpen(!isOpen)}
           p={6}
           w="full"
           justify="space-between"
           align="start"
-          cursor="pointer"
           _hover={{ bg: colors.primary + "10" }}
         >
           <Text
@@ -101,8 +98,12 @@ const FaqItem = ({ question, answer }: { question: string; answer: string }) => 
 };
 
 const Faq = () => {
+
+
+    const bggradient = `linear-gradient(180deg, ${colors.primary + '50'} 10%,#0d1014 50%)`;
+
   return (
-    <Box id="faq" pt={10} pb={20} display="flex" bgColor={colors.backgroundPrimary} alignItems="center" justifyContent="center">
+    <Box id="faq" pt={10} pb={20} display="flex" bg={bggradient} alignItems="center" justifyContent="center">
       <VStack textAlign="center" maxW="1000px" w="full" px={8}>
         <Text
           fontSize="md"
