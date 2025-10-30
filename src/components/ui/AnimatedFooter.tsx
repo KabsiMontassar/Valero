@@ -2,8 +2,8 @@ import { Box, Text, Image, VStack, HStack } from '@chakra-ui/react';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { colors } from '../theme';
-import logo from '../assets/ValeroWhite.svg';
+import { colors } from '../../theme';
+import logo from '../../assets/ValeroWhite.svg';
 import Aurora from './Aurora';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,61 +14,50 @@ const AnimatedFooter = () => {
     useEffect(() => {
         if (!logoRef.current || !footerRef.current) return;
 
-        // Initial state: above and rotated top-first
-        gsap.set(logoRef.current, {
-            opacity: 0,
-            z: 500,                 // away from screen
-            rotationX: 30,           // top-first tilt toward viewer
-            transformPerspective: 800,
-            transformOrigin: "center top", // pivot around top
-        });
-
-        ScrollTrigger.create({
-            trigger: footerRef.current,
-            start: "top 70%",
-            onEnter: () => {
-                gsap.to(logoRef.current, {
-                    opacity: 1,
-                    z: 0,             
-                    rotationX: 0,    
-                    duration: 1.5,
-                    delay: 1,
-                    ease: "power2.out",
-                });
-            },
-            onEnterBack: () => {
-                gsap.to(logoRef.current, {
+        const showAnimation = () => {
+            gsap.fromTo(
+                logoRef.current,
+                {
+                    opacity: 0,
+                    z: 500,
+                    rotationX: 30,
+                    transformPerspective: 800,
+                    transformOrigin: "center top",
+                },
+                {
                     opacity: 1,
                     z: 0,
                     rotationX: 0,
                     duration: 1.5,
-                    delay: 1,
+                    delay: 0.8,
                     ease: "power2.out",
-                });
-            },
+                }
+            );
+        };
+
+        ScrollTrigger.create({
+            trigger: footerRef.current,
+            start: "top 70%",
+            end: "bottom 30%",
+            onEnter: showAnimation,
+            onEnterBack: showAnimation,
             onLeave: () => {
-                gsap.to(logoRef.current, {
+                gsap.set(logoRef.current, {
                     opacity: 0,
                     z: 500,
-                    rotationX: 30,    // reset top-first
-                    duration: 0.5,
-                    ease: "power2.inOut",
+                    rotationX: 30,
                 });
             },
             onLeaveBack: () => {
-                gsap.to(logoRef.current, {
+                gsap.set(logoRef.current, {
                     opacity: 0,
                     z: 500,
-                    rotationX: 30,    // reset top-first
-                    duration: 0.5,
-                    ease: "power2.inOut",
+                    rotationX: 30,
                 });
             },
         });
 
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
+        return () => ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     }, []);
 
 
@@ -104,7 +93,7 @@ const AnimatedFooter = () => {
                             Product
                         </Text>
                         <VStack align="start" gap={3}>
-                            {['Home', 'Features', 'Pricing', 'Resources'].map((item) => (
+                            {['Home', 'Features', 'Resources'].map((item) => (
                                 <Text
                                     key={item}
                                     fontSize="sm"

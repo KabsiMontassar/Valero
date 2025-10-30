@@ -1,5 +1,5 @@
 import { Box, Text, VStack, Grid, GridItem, HStack } from '@chakra-ui/react';
-import { gradientTextStyles, colors } from '../theme';
+import { gradientTextStyles, colors } from '../../theme';
 import {
     Zap,
     Users,

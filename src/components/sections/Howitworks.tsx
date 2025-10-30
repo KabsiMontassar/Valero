@@ -1,9 +1,9 @@
 import { Box, Text, VStack } from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
 import { gradientTextStyles, colors } from '../../theme';
-import CurvedLoop from '../CurvedLoop';
+import CurvedLoop from '../ui/CurvedLoop';
 import { Plus, UserPlus, MessageCircle, Mic } from 'lucide-react';
-import FeatureCards from '../FeatureCards';
+import FeatureCards from '../ui/FeatureCards';
 const Icon = ({ icon }: { icon: React.ComponentType<any> }) => {
   const IconComponent = icon;
   return <IconComponent size={64} strokeWidth={1.5} />;

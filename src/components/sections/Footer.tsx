@@ -9,7 +9,7 @@ import messagerec from '../../assets/messagerec.svg';
 import mic from '../../assets/mic.svg';
 import phone from '../../assets/phone.svg';
 import send from '../../assets/send.svg';
-import AnimatedFooter from '../AnimatedFooter';
+import AnimatedFooter from '../ui/AnimatedFooter';
 import colors, { gradientTextStyles } from '@/theme';
 
 gsap.registerPlugin(MorphSVGPlugin, ScrollTrigger);

@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, useMemo, useId, type FC, type PointerEvent } from 'react';
-import { colors } from '../theme';
+import { colors } from '../../theme';
 
 interface CurvedLoopProps {
   marqueeText?: string;
