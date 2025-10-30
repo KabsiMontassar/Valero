@@ -1,41 +1,12 @@
 import { Box, Text, VStack } from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
-import {  colors } from '../../theme';
-import { Plus, UserPlus, MessageCircle, Mic } from 'lucide-react';
+import { colors } from '../../theme';
+import { checkpoints } from '../types/innerPaths';
 const Icon = ({ icon }: { icon: React.ComponentType<any> }) => {
     const IconComponent = icon;
     return <IconComponent size={64} strokeWidth={1.5} />;
 };
-const checkpoints = [
-    {
-        id: 'Create',
-        number: '01',
-        title: 'Create',
-        description: 'Start by creating your own community or team hub.',
-        icon: Plus
-    },
-    {
-        id: 'Connect',
-        number: '02',
-        title: 'Connect',
-        description: 'Invite friends, teammates, or members to join your space.',
-        icon: UserPlus
-    },
-    {
-        id: 'Collaborate',
-        number: '03',
-        title: 'Collaborate',
-        description: 'Exchange messages and ideas in your channels.',
-        icon: MessageCircle
-    },
-    {
-        id: 'Communicate',
-        number: '04',
-        title: 'Communicate',
-        description: 'Jump into voice channels to stay in sync in real time.',
-        icon: Mic
-    }
-];
+
 
 const TimeLine = () => {
     const timelineRef = useRef<HTMLDivElement>(null);
