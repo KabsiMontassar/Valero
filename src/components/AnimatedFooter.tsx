@@ -29,9 +29,10 @@ const AnimatedFooter = () => {
             onEnter: () => {
                 gsap.to(logoRef.current, {
                     opacity: 1,
-                    z: 0,             // move to "table"
-                    rotationX: 0,     // lay flat
+                    z: 0,             
+                    rotationX: 0,    
                     duration: 1.5,
+                    delay: 1,
                     ease: "power2.out",
                 });
             },
@@ -41,6 +42,7 @@ const AnimatedFooter = () => {
                     z: 0,
                     rotationX: 0,
                     duration: 1.5,
+                    delay: 1,
                     ease: "power2.out",
                 });
             },

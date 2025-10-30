@@ -137,7 +137,7 @@ const Footer = () => {
       </Box>
 
       {/* Footer text */}
-      <Box mt={8} textAlign="center" px={4} zIndex={1}>
+      <Box mt={8} mb={12} textAlign="center" px={4} zIndex={1}>
         <Text
           fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
           fontWeight="bold"
@@ -159,7 +159,7 @@ const Footer = () => {
         width="80%"
         height="1px"
         bg="rgba(255, 255, 255, 0.2)"
-        mt={8}
+        mt={15}
         mb={8}
       />
       <AnimatedFooter />
