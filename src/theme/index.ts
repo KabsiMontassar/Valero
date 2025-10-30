@@ -18,7 +18,7 @@ export const colors = {
 
 // Gradient text styles for highlighted content
 export const gradients = {
-  primaryToSecondary: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.secondary} 100%)`,
+  primaryToSecondary: `linear-gradient(180deg, ${colors.primary} 0%, ${colors.secondary} 100%)`,
 };
 
 // Utility function for gradient text
