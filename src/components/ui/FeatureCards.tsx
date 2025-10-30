@@ -79,15 +79,16 @@ const FeatureIcon = ({ icon: IconComponent }: FeatureIconProps) => (
         display="flex"
         alignItems="center"
         justifyContent="center"
-        width="32px"
-        height="32px"
+        width={{ base: '28px', md: '32px' }}
+        height={{ base: '28px', md: '32px' }}
         borderRadius="md"
         background="#FFFFFF10"
         opacity={20}
         position="relative"
         mb={2}
+        flexShrink={0}
     >
-        <IconComponent size={18} color="#3073da" strokeWidth={1.8} />
+        <IconComponent size={{ base: 16, md: 18 }} color="#3073da" strokeWidth={1.8} />
     </Box>
 );
 
@@ -97,10 +98,9 @@ const FeatureIcon = ({ icon: IconComponent }: FeatureIconProps) => (
 const FeatureCard = ({ feature }: FeatureCardProps) => (
     <GridItem key={feature.id}>
         <Box
-            py={3}
-            px={6}
+            py={{ base: 3, md: 4 }}
+            px={{ base: 4, md: 6 }}
             borderRadius="2xl"
-
             bg={colors.backgroundSecondary + '50'}
             height="100%"
             transition="all 0.3s ease"
@@ -113,28 +113,30 @@ const FeatureCard = ({ feature }: FeatureCardProps) => (
             flexDirection="column"
         >
             <HStack
-                gap={2}
-                textAlign="center"
+                gap={{ base: 1.5, md: 2 }}
+                textAlign="start"
+                align="flex-start"
             >
                 <FeatureIcon icon={feature.icon} />
 
                 <Text
-                    fontSize="md"
+                    fontSize={{ base: 'sm', md: 'md' }}
                     fontWeight="bold"
                     color={colors.secondary}
-                    mb={2}
+                    mb={{ base: 1, md: 2 }}
+                    lineHeight="1.3"
                 >
                     {feature.title}
                 </Text>
             </HStack>
 
-
             <Text
-                fontSize="xs"
+                fontSize={{ base: 'xs', md: 'sm' }}
                 color={colors.textPrimary}
-                lineHeight="1.7"
+                lineHeight="1.6"
                 flex={1}
                 fontWeight="normal"
+                mt={{ base: 1, md: 2 }}
             >
                 {feature.description}
             </Text>
@@ -146,17 +148,17 @@ const FeatureCards = () => {
     return (
         <Box
             id="features"
-            pt={28}
-            pb={32}
+            pt={{ base: 16, md: 28 }}
+            pb={{ base: 20, md: 32 }}
             bg={colors.backgroundPrimary}
             position="relative"
             overflow="hidden"
         >
-            <VStack gap={16} px={8} maxW="1200px" mx="auto">
+            <VStack gap={{ base: 10, md: 16 }} px={{ base: 4, md: 8 }} maxW="1200px" mx="auto">
                 {/* Header */}
                 <VStack gap={4} textAlign="center" maxW="800px">
                     <Text
-                        fontSize="sm"
+                        fontSize={{ base: 'xs', md: 'sm' }}
                         fontWeight="semibold"
                         color={colors.textPrimary}
                         letterSpacing="wide"
@@ -167,7 +169,7 @@ const FeatureCards = () => {
 
                     <Box>
                         <Text
-                            fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                            fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl' }}
                             fontWeight="bold"
                             lineHeight="1.1"
                             mb={6}
@@ -183,7 +185,7 @@ const FeatureCards = () => {
                     </Box>
 
                     <Text
-                        fontSize="xl"
+                        fontSize={{ base: 'sm', md: 'lg', lg: 'xl' }}
                         color={colors.textMuted}
                         lineHeight="1.7"
                         maxW="600px"
@@ -200,28 +202,28 @@ const FeatureCards = () => {
                         md: 'repeat(2, 1fr)',
                         lg: 'repeat(3, 1fr)',
                     }}
-                    gap={3}
+                    gap={{ base: 2.5, md: 3 }}
                     w="100%"
                     justifyContent="center"
                 >
                     {/* Row 1: 2 cards, centered */}
-                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={3}>
+                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={{ base: 2, md: 3 }} flexWrap="wrap">
                         <FeatureCard feature={featureItems[0]} />
                         <FeatureCard feature={featureItems[1]} />
                     </GridItem>
                     {/* Row 2: 3 cards, centered */}
-                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={3}>
+                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={{ base: 2, md: 3 }} flexWrap="wrap">
                         <FeatureCard feature={featureItems[2]} />
                         <FeatureCard feature={featureItems[3]} />
                         <FeatureCard feature={featureItems[4]} />
                     </GridItem>
                     {/* Row 3: 2 cards, centered */}
-                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={3}>
+                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={{ base: 2, md: 3 }} flexWrap="wrap">
                         <FeatureCard feature={featureItems[5]} />
                         <FeatureCard feature={featureItems[6]} />
                     </GridItem>
                     {/* Row 4: 1 card, centered */}
-                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={3}>
+                    <GridItem colSpan={{ base: 1, md: 2, lg: 3 }} display="flex" justifyContent="center" gap={{ base: 2, md: 3 }} flexWrap="wrap">
                         <FeatureCard feature={featureItems[7]} />
                     </GridItem>
                 </Grid>

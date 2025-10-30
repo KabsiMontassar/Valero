@@ -39,7 +39,7 @@ const Hero = () => {
   return (
     <Box
       id="hero"
-      pb={10}
+      pb={{ base: 6, md: 10 }}
 
       display="flex"
       alignItems="center"
@@ -47,6 +47,8 @@ const Hero = () => {
       position="relative"
       overflow="hidden"
       bg={colors.backgroundPrimary}
+      px={{ base: 4, md: 0 }}
+      minH={{ base: '80vh', md: '100vh' }}
     >
       <motion.div
         key="hero-animation" // Force re-mount on navigation
@@ -55,9 +57,9 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}
       >
-        <Box position="relative" zIndex={20} mt={20} mb={"-100px"} >
+        <Box position="relative" zIndex={20} mt={20} mb={"-100px"} px={{ base: 2, md: 0 }} >
           <Text
-            fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
+            fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl', xl: '6xl', '2xl': '7xl' }}
             fontWeight="bold"
             lineHeight="1.1"
             textAlign="center"
@@ -71,7 +73,16 @@ const Hero = () => {
         </Box>
 
         {/* Blue Layers + Center Circle */}
-        <Box position="relative" display="inline-block" width="1400px" height="900px" mt={-16}>
+        <Box 
+          position="relative" 
+          display="inline-block" 
+          width={{ base: '300px', sm: '600px', md: '1000px', lg: '1400px' }} 
+          height={{ base: '300px', sm: '600px', md: '800px', lg: '900px' }} 
+          mt={-16}
+          style={{ 
+            '--scale': window.innerWidth < 768 ? '0.3' : window.innerWidth < 1024 ? '0.6' : window.innerWidth < 1280 ? '0.8' : '1'
+          } as React.CSSProperties}
+        >
           <motion.div
             transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
             style={{ position: 'relative', width: '100%', height: '100%' }}
@@ -84,8 +95,8 @@ const Hero = () => {
                 top="50%"
                 left="50%"
                 transform="translate(-50%, -50%)"
-                width={`${size}px`}
-                height={`${size}px`}
+                width={{ base: `${size * 0.3}px`, sm: `${size * 0.6}px`, md: `${size * 0.8}px`, lg: `${size}px` }}
+                height={{ base: `${size * 0.3}px`, sm: `${size * 0.6}px`, md: `${size * 0.8}px`, lg: `${size}px` }}
                 bg={`#2A6EDB${('0' + (i + 1)).slice(-2)}`}
                 borderRadius="50%"
               />
@@ -111,12 +122,12 @@ const Hero = () => {
                   position: 'absolute',
                   top: '0',
                   left: '0',
-                  transform: 'translate(-50%, -50%) translate(280px, 0px)',
-                  width: '50px',
-                  height: '50px',
+                  transform: 'translate(-50%, -50%) translate(calc(280px * var(--scale)), 0px)',
+                  width: 'calc(50px * var(--scale))',
+                  height: 'calc(50px * var(--scale))',
                 }}
               >
-                <Image src={messagecirc} alt="Message Circle" boxSize="50px" />
+                <Image src={messagecirc} alt="Message Circle" boxSize={{ base: '15px', sm: '30px', md: '40px', lg: '50px' }} />
               </motion.div>
               {/* Icon 2 at 180 degrees (left) */}
               <motion.div
@@ -124,12 +135,12 @@ const Hero = () => {
                   position: 'absolute',
                   top: '0',
                   left: '0',
-                  transform: 'translate(-50%, -50%) translate(-280px, 0px)',
-                  width: '50px',
-                  height: '50px',
+                  transform: 'translate(-50%, -50%) translate(calc(-280px * var(--scale)), 0px)',
+                  width: 'calc(50px * var(--scale))',
+                  height: 'calc(50px * var(--scale))',
                 }}
               >
-                <Image src={messagerec} alt="Message Record" boxSize="50px" />
+                <Image src={messagerec} alt="Message Record" boxSize={{ base: '15px', sm: '30px', md: '40px', lg: '50px' }} />
               </motion.div>
             </motion.div>
 
@@ -152,12 +163,12 @@ const Hero = () => {
                   position: 'absolute',
                   top: '0',
                   left: '0',
-                  transform: 'translate(-50%, -50%) translate(0px, -220px)',
-                  width: '50px',
-                  height: '50px',
+                  transform: 'translate(-50%, -50%) translate(0px, calc(-220px * var(--scale)))',
+                  width: 'calc(50px * var(--scale))',
+                  height: 'calc(50px * var(--scale))',
                 }}
               >
-                <Image src={mic} alt="Microphone" boxSize="50px" />
+                <Image src={mic} alt="Microphone" boxSize={{ base: '15px', sm: '30px', md: '40px', lg: '50px' }} />
               </motion.div>
               {/* Icon 2 at 270 degrees (bottom) */}
               <motion.div
@@ -165,12 +176,12 @@ const Hero = () => {
                   position: 'absolute',
                   top: '0',
                   left: '0',
-                  transform: 'translate(-50%, -50%) translate(0px, 220px)',
-                  width: '50px',
-                  height: '50px',
+                  transform: 'translate(-50%, -50%) translate(0px, calc(220px * var(--scale)))',
+                  width: 'calc(50px * var(--scale))',
+                  height: 'calc(50px * var(--scale))',
                 }}
               >
-                <Image src={phone} alt="Phone" boxSize="50px" />
+                <Image src={phone} alt="Phone" boxSize={{ base: '15px', sm: '30px', md: '40px', lg: '50px' }} />
               </motion.div>
             </motion.div>
 
@@ -193,12 +204,12 @@ const Hero = () => {
                   position: 'absolute',
                   top: '0',
                   left: '0',
-                  transform: 'translate(-50%, -50%) translate(120px, -120px)',
-                  width: '160px',
-                  height: '160px',
+                  transform: 'translate(-50%, -50%) translate(calc(120px * var(--scale)), calc(-120px * var(--scale)))',
+                  width: 'calc(160px * var(--scale))',
+                  height: 'calc(160px * var(--scale))',
                 }}
               >
-                <Image src={send} alt="Send" boxSize="50px" />
+                <Image src={send} alt="Send" boxSize={{ base: '15px', sm: '30px', md: '40px', lg: '50px' }} />
               </motion.div>
             </motion.div>
 
@@ -208,12 +219,13 @@ const Hero = () => {
               top="50%"
               left="50%"
               transform="translate(-50%, -50%)"
-              width="300px"
-              height="300px"
+              width={{ base: '100px', sm: '150px', md: '200px', lg: '300px' }}
+              height={{ base: '100px', sm: '150px', md: '200px', lg: '300px' }}
               bg="#111a29"
               borderRadius="50%"
               overflow="hidden"
               zIndex={10}
+              style={{ '--scale': 'var(--scale, 1)' } as React.CSSProperties}
             >
               <svg viewBox="0 0 68 69" width="100%" height="100%">
                 <path

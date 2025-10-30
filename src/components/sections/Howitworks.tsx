@@ -105,10 +105,12 @@ const HowItWorks = () => {
     <Box
       id="howitworks"
       ref={sectionRef}
-      pt={20}
+      pt={{ base: 12, md: 20 }}
+      pb={{ base: 12, md: 20 }}
       bg={colors.backgroundPrimary}
       position="relative"
       overflow="hidden"
+      px={{ base: 4, md: 0 }}
     >
       <CurvedLoop
         marqueeText="CHAT ✦ HANG OUT ✦ TALK ✦ HAVE FUN ✦"
@@ -118,10 +120,10 @@ const HowItWorks = () => {
         interactive={false}
       />
 
-      <VStack gap={16} pt={20} px={8}>
-        <VStack gap={6} textAlign="center" maxW="800px">
+      <VStack gap={{ base: 12, md: 16 }} pt={{ base: 12, md: 20 }} px={{ base: 4, md: 8 }}>
+        <VStack gap={6} textAlign="center" maxW="800px" px={{ base: 2, md: 0 }}>
           <Text
-            fontSize="lg"
+            fontSize={{ base: 'xs', md: 'lg' }}
             fontWeight="medium"
             color={colors.textPrimary}
             letterSpacing="wide"
@@ -132,7 +134,7 @@ const HowItWorks = () => {
 
           <Box>
             <Text
-              fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
+              fontSize={{ base: 'xl', sm: '2xl', md: '4xl', lg: '6xl', xl: '7xl' }}
               fontWeight="bold"
               lineHeight="1.1"
               textAlign="center"
@@ -152,9 +154,10 @@ const HowItWorks = () => {
           w="100%"
           maxW="1100px"
           mx="auto"
-          mt={20}
+          mt={{ base: 10, md: 20 }}
 
           py={10}
+          px={{ base: 4, md: 0 }}
           ref={timelineRef}
         >
           {/* Static/Grey line */}
@@ -185,7 +188,7 @@ const HowItWorks = () => {
           />
 
           {/* Timeline items */}
-          <VStack gap={40} position="relative" py={20}>
+          <VStack gap={{ base: 20, md: 40 }} position="relative" py={20}>
             {checkpoints.map((cp, i) => (
               <Box
                 key={cp.id}
@@ -254,10 +257,10 @@ const HowItWorks = () => {
                 <Box
                   className="checkpoint-icon"
                   position="absolute"
-                  left="30%"
+                  left={{ base: '5%', md: '30%' }}
                   color={colors.textMuted}
                   opacity={0.6}
-                  p={4}
+                  p={{ base: 2, md: 4 }}
                   borderRadius="xl"
                   transition="all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)"
                   transform="scale(1)"
@@ -269,7 +272,7 @@ const HowItWorks = () => {
                     bg: colors.backgroundTertiary,
                     borderColor: colors.border,
                   }}
-
+                  display={{ base: 'none', lg: 'block' }}
                 >
                   <Icon icon={cp.icon} />
                 </Box>
@@ -278,8 +281,8 @@ const HowItWorks = () => {
                 <Box
                   className="checkpoint-circle"
                   position="relative"
-                  width="90px"
-                  height="90px"
+                  width={{ base: '60px', md: '90px' }}
+                  height={{ base: '60px', md: '90px' }}
                   borderRadius="50%"
                   border="2px solid"
                   borderColor={colors.border}
@@ -293,7 +296,7 @@ const HowItWorks = () => {
                 >
                   <Text
                     className="checkpoint-circle-text"
-                    fontSize="2xl"
+                    fontSize={{ base: 'lg', md: '2xl' }}
                     fontWeight="bold"
                     color={colors.textMuted}
                     transition="all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)"
@@ -307,21 +310,17 @@ const HowItWorks = () => {
                 <Box
                   className="checkpoint-content"
                   position="absolute"
-                  left="60%"
-                  maxW="400px"
-                  p={8}
+                  left={{ base: '55%', md: '60%' }}
+                  maxW={{ base: '280px', md: '400px' }}
+                  p={{ base: 4, md: 8 }}
                   borderRadius="2xl"
-
-
-
                   transition="all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
                   transform="scale(1)"
-
                 >
                   <VStack align="start" gap={3}>
                     <Text
                       className="checkpoint-title"
-                      fontSize="6xl"
+                      fontSize={{ base: '2xl', md: '4xl', lg: '6xl' }}
                       fontWeight="bold"
                       color={colors.textPrimary}
                       transition="all 0.4s ease"
@@ -332,11 +331,11 @@ const HowItWorks = () => {
                     </Text>
                     <Box
                       w="100%"
-                      maxW="200px" // Constrain description width to match title area
+                      maxW={{ base: '180px', md: '200px' }}
                     >
                       <Text
                         className="checkpoint-description"
-                        fontSize="xs"
+                        fontSize={{ base: 'xs', md: 'sm' }}
                         color={colors.textMuted}
                         lineHeight="1.5"
                         transition="all 0.4s ease"
