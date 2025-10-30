@@ -65,24 +65,31 @@ const AnimatedFooter = () => {
         <Box
             ref={footerRef}
             width="100%"
-            px={{ base: 4, md: 8 }}
+            px={0}
             pt={{ base: 8, md: 12 }}
             pb={{ base: 8, md: 12 }}
             position="relative"
             overflow={"hidden"}
             justifyContent={"center"}
             alignItems={"center"}
+            margin={0}
+            padding={0}
+            paddingTop={{ base: 8, md: 12 }}
+            paddingBottom={{ base: 8, md: 12 }}
         >
 
             <VStack gap={{ base: 6, md: 8 }}
                 maxW="1200px"
                 mx="auto"
-                align="center"        // center everything horizontally
-                textAlign="center">
+                align="center"
+                textAlign="center"
+                width="100%"
+                px={{ base: 4, md: 8 }}
+            >
                 {/* Links Section */}
                 <Box
                     display="grid"
-                    gridTemplateColumns={{ base: '1fr 1fr', md: 'repeat(4, 1fr)' }}
+                    gridTemplateColumns={{ base: '1fr 1fr', md: 'repeat(3, 1fr)' }}
                     gap={{ base: 6, md: 8 }}
                     width="100%"
                     maxW="1000px"
@@ -109,26 +116,7 @@ const AnimatedFooter = () => {
                         </VStack>
                     </VStack>
 
-                    {/* Template Column */}
-                    <VStack align="start" gap={4}>
-                        <Text fontSize={{ base: 'xs', md: 'sm' }} fontWeight="semibold" color="white" letterSpacing="wide">
-                            Template
-                        </Text>
-                        <VStack align="start" gap={3}>
-                            {['Style Guide', 'Instructions', 'Components', 'Changelog', 'Licenses'].map((item) => (
-                                <Text
-                                    key={item}
-                                    fontSize={{ base: 'xs', md: 'sm' }}
-                                    color="rgba(255, 255, 255, 0.7)"
-                                    cursor="pointer"
-                                    _hover={{ color: "white" }}
-                                    transition="color 0.2s"
-                                >
-                                    {item}
-                                </Text>
-                            ))}
-                        </VStack>
-                    </VStack>
+                   
 
                     {/* Company Column - Hidden on Mobile, shown on Tablet+ */}
                     <VStack align="start" gap={4} display={{ base: 'none', md: 'flex' }}>

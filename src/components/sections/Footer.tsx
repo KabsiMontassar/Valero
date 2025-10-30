@@ -38,10 +38,14 @@ const Footer = () => {
       flexDirection="column"
       alignItems="center"
       position="relative"
-      width="full"
-      px={{ base: 4, md: 0 }}
+      width="100vw"
+      marginLeft="calc(-50vw + 50%)"
+      px={0}
+      margin={0}
+      padding={0}
+      overflow="hidden"
     >
-      <Box id="footer-morpher-animation" position="relative" width="100%" height={{ base: '120px', sm: '150px', md: '250px' }}>
+      <Box id="footer-morpher-animation" position="relative" width="100%" height={{ base: '130px', sm: '150px', md: '300px' }}>
         {/* Horizontal line */}
         <Box
           position="absolute"
@@ -139,7 +143,7 @@ const Footer = () => {
       </Box>
 
       {/* Footer text */}
-      <Box mt={{ base: 4, md: 8 }} mb={{ base: 8, md: 12 }} textAlign="center" px={{ base: 2, md: 4 }} zIndex={1}>
+      <Box mt={{ base: 4, md: 8 }} mb={{ base: 8, md: 12 }} textAlign="center" px={{ base: 4, md: 8 }} zIndex={1}>
         <Text
           fontSize={{ base: 'lg', sm: '2xl', md: '4xl', lg: '5xl' }}
           fontWeight="bold"

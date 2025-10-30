@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   
   return (
-    <Box minH="100vh" bg={colors.backgroundPrimary}>
+    <Box minH="100vh" bg={colors.backgroundPrimary} width="100%" overflow="hidden" margin={0} padding={0}>
       {/* Sticky Logo - Left */}
       <Box
         position="fixed"
