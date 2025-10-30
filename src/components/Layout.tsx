@@ -53,7 +53,7 @@ const Layout = ({ children }: LayoutProps) => {
         transition="all 0.3s ease"
       >
         <Link
-          href="https://github.com/KabsiMontassar/VoiceFlowVitrine"
+          href="https://github.com/KabsiMontassar/ValeroVitrine"
           target="_blank"
           rel="noopener noreferrer"
           _hover={{ textDecoration: 'none' }}
