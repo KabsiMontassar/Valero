@@ -211,7 +211,7 @@ const Hero = () => {
                   position: 'absolute',
                   top: '0',
                   left: '0',
-                  transform: 'translate(-50%, -50%) translate(calc(120px * var(--scale)), calc(-120px * var(--scale)))',
+                  transform: 'translate(-50%, -50%) translate(calc(140px * var(--scale)), calc(-120px * var(--scale)))',
                   width: 'calc(160px * var(--scale))',
                   height: 'calc(160px * var(--scale))',
                 }}

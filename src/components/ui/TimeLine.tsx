@@ -71,9 +71,8 @@ const TimeLine = () => {
             w="100%"
             maxW="1100px"
             mx="auto"
-            mt={{ base: 10, md: 20 }}
-
-            py={10}
+            mt={{ base: 8, md: 10, lg: 20 }}
+            py={{ base: 8, md: 10 }}
             px={{ base: 4, md: 0 }}
             ref={timelineRef}
         >
@@ -105,7 +104,7 @@ const TimeLine = () => {
             />
 
             {/* Timeline items */}
-            <VStack gap={{ base: 20, md: 40 }} position="relative" py={20}>
+            <VStack gap={{ base: 16, md: 20, lg: 40 }} position="relative" py={{ base: 10, md: 20 }}>
                 {checkpoints.map((cp, i) => (
                     <Box
                         key={cp.id}
@@ -114,11 +113,12 @@ const TimeLine = () => {
                         }}
                         position="relative"
                         w="100%"
-                        minH="180px"
+                        minH={{ base: "120px", md: "180px" }}
                         display="flex"
                         alignItems="center"
                         justifyContent="center"
                         className="timeline-item"
+                        flexDirection={{ base: "column", md: "row" }}
                     >
                         <style>{`
                   .timeline-item {
@@ -170,17 +170,18 @@ const TimeLine = () => {
                   }
                  
                 `}</style>
-                        {/* Left Icon */}
+                        {/* Left Icon - Hidden on mobile, shown on larger screens */}
                         <Box
                             className="checkpoint-icon"
-                            position="absolute"
-                            left={{ base: '5%', md: '30%' }}
+                            position={{ base: "absolute", md: "absolute" }}
+                            left={{ base: '50%', md: '30%' }}
+                            top={{ base: '-20px', md: 'auto' }}
+                            transform={{ base: 'translateX(-50%)', md: 'scale(1)' }}
                             color={colors.textMuted}
                             opacity={0.6}
-                            p={{ base: 2, md: 4 }}
+                            p={{ base: 1.5, md: 4 }}
                             borderRadius="xl"
                             transition="all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)"
-                            transform="scale(1)"
                             bg={colors.backgroundSecondary}
                             border="1px solid"
                             borderColor={colors.borderSubtle}
@@ -189,17 +190,18 @@ const TimeLine = () => {
                                 bg: colors.backgroundTertiary,
                                 borderColor: colors.border,
                             }}
-                            display={{ base: 'none', lg: 'block' }}
+                            display={{ base: 'none', md: 'none', lg: 'block' }}
+                            zIndex={3}
                         >
                             <Icon icon={cp.icon} />
                         </Box>
 
-                        {/* Center Circle with before pseudo element */}
+                        {/* Center Circle */}
                         <Box
                             className="checkpoint-circle"
                             position="relative"
-                            width={{ base: '60px', md: '90px' }}
-                            height={{ base: '60px', md: '90px' }}
+                            width={{ base: '50px', md: '60px', lg: '90px' }}
+                            height={{ base: '50px', md: '60px', lg: '90px' }}
                             borderRadius="50%"
                             border="2px solid"
                             borderColor={colors.border}
@@ -210,10 +212,11 @@ const TimeLine = () => {
                             zIndex={2}
                             transition="all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)"
                             boxShadow="0 4px 16px rgba(0,0,0,0.3)"
+                            mt={{ base: 6, md: 0 }}
                         >
                             <Text
                                 className="checkpoint-circle-text"
-                                fontSize={{ base: 'lg', md: '2xl' }}
+                                fontSize={{ base: 'md', md: 'lg', lg: '2xl' }}
                                 fontWeight="bold"
                                 color={colors.textMuted}
                                 transition="all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)"
@@ -223,42 +226,46 @@ const TimeLine = () => {
                             </Text>
                         </Box>
 
-                        {/* Right Content */}
+                        {/* Content */}
                         <Box
                             className="checkpoint-content"
-                            position="absolute"
-                            left={{ base: '55%', md: '60%' }}
-                            maxW={{ base: '280px', md: '400px' }}
-                            p={{ base: 4, md: 8 }}
+                            position={{ base: "relative", md: "absolute" }}
+                            left={{ base: 'auto', md: '60%' }}
+                            maxW={{ base: '100%', md: '280px', lg: '400px' }}
+                            p={{ base: 3, md: 4, lg: 8 }}
                             borderRadius="2xl"
                             transition="all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
                             transform="scale(1)"
+                            mt={{ base: 4, md: 0 }}
+                            textAlign={{ base: "center", md: "start" }}
                         >
-                            <VStack align="start" gap={3}>
+                            <VStack align={{ base: "center", md: "start" }} gap={3}>
                                 <Text
                                     className="checkpoint-title"
-                                    fontSize={{ base: '2xl', md: '4xl', lg: '6xl' }}
+                                    fontSize={{ base: 'xl', md: '2xl', lg: '4xl', xl: '6xl' }}
                                     fontWeight="bold"
                                     color={colors.textPrimary}
                                     transition="all 0.4s ease"
                                     lineHeight="1.2"
                                     letterSpacing="tight"
+                                    textAlign={{ base: "center", md: "start" }}
                                 >
                                     {cp.title}
                                 </Text>
                                 <Box
                                     w="100%"
-                                    maxW={{ base: '180px', md: '200px' }}
+                                    maxW={{ base: '100%', md: '180px', lg: '200px' }}
                                 >
                                     <Text
                                         className="checkpoint-description"
-                                        fontSize={{ base: 'xs', md: 'sm' }}
+                                        fontSize={{ base: 'sm', md: 'xs', lg: 'sm' }}
                                         color={colors.textMuted}
                                         lineHeight="1.5"
                                         transition="all 0.4s ease"
                                         opacity={0.8}
                                         wordBreak="break-word"
                                         whiteSpace="normal"
+                                        textAlign={{ base: "center", md: "start" }}
                                     >
                                         {cp.description}
                                     </Text>
