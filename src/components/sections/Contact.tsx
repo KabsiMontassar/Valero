@@ -1,8 +1,9 @@
-import { Box, Text, Flex, VStack, Input, Textarea, Button, SimpleGrid, Icon } from '@chakra-ui/react';
+import { Box, Text, Flex, VStack, Input, Textarea, Button, Icon } from '@chakra-ui/react';
 import colors, { gradientTextStyles } from '../../theme';
 import { motion } from 'framer-motion';
 import { MapPin, Mail, Clock, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import ContactCards from '../../components/ContactCards';
 
 const Contact = () => {
   const [selectedSubject, setSelectedSubject] = useState('');
@@ -18,6 +19,28 @@ const Contact = () => {
     setSelectedSubject(value);
     setIsDropdownOpen(false);
   };
+
+  const contactData = [
+    {
+      icon: MapPin,
+      title: 'Office',
+      content: '123 Anywhere Street, Tunis, Tunisia'
+    },
+    {
+      icon: Mail,
+      title: 'Email',
+      content: 'support@valero.com'
+    },
+    {
+      icon: Clock,
+      title: 'Business Hours',
+      content: 'Mon - Fri: 9:00 AM - 6:00 CET'
+    }
+  ];
+
+
+
+
 
   return (
     <Box id="contact" pt={10} pb={20} minH="100vh" display="flex" alignItems="center" justifyContent="center">
@@ -71,7 +94,8 @@ const Contact = () => {
                     id="full-name"
 
                     borderColor={colors.primary + "80"}
-                    borderRadius="0"
+                    borderRadius="xs"
+
                     color={colors.textPrimary}
                     fontSize="lg"
                     p={4}
@@ -90,7 +114,8 @@ const Contact = () => {
                     bg={colors.primary + "30"}
                     border="1px solid"
                     borderColor={colors.primary + "80"}
-                    borderRadius="0"
+                    borderRadius="xs"
+
                     color={colors.textPrimary}
                     fontSize="lg"
                     p={4}
@@ -150,6 +175,7 @@ const Contact = () => {
                     >
                       {subjects.map((subject) => (
                         <Box
+
                           key={subject.value}
                           p={4}
                           cursor="pointer"
@@ -173,12 +199,13 @@ const Contact = () => {
                   Message
                 </Text>
                 <Textarea
+
                   placeholder="Tell us how we can help you..."
                   rows={6}
                   bg={colors.primary + "30"}
                   border="1px solid"
                   borderColor={colors.primary + "80"}
-                  borderRadius="0"
+                  borderRadius="xs"
                   color={colors.textPrimary}
                   fontSize="lg"
                   p={4}
@@ -190,12 +217,12 @@ const Contact = () => {
               <Button
                 w="full"
                 size="lg"
-                bg={`linear-gradient(90deg, ${colors.primary}, ${colors.secondary})`}
+                bg={colors.primary + "80"}
                 color="white"
                 fontSize="lg"
                 fontWeight="semibold"
                 p={6}
-                borderRadius="md"
+                borderRadius="xs"
                 _hover={{
                   transform: 'translateY(-3px)',
                 }}
@@ -217,88 +244,7 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <SimpleGrid columns={{ base: 1, md: 3 }} gap={8} maxW="1000px" mx="auto">
-            {/* Office Card */}
-            <Box
-              bg={colors.backgroundSecondary + "20"}
-              backdropFilter="blur(10px)"
-              border="1px solid"
-              borderColor="whiteAlpha.200"
-              borderRadius="xl"
-              p={6}
-              textAlign="center"
-              _hover={{
-                transform: 'translateY(-5px)',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                borderColor: colors.primary + "50"
-              }}
-              transition="all 0.3s ease"
-            >
-              <Icon as={MapPin} w={8} h={8} color={colors.primary} mb={4} />
-              <Text fontSize="lg" fontWeight="semibold" color={colors.textPrimary} mb={2}>
-                Office
-              </Text>
-              <Text fontSize="sm" color={colors.textMuted}>
-                123 Business Street<br />
-                Tech City, TC 12345<br />
-                United States
-              </Text>
-            </Box>
-
-            {/* Email Card */}
-            <Box
-              bg={colors.backgroundSecondary + "20"}
-              backdropFilter="blur(10px)"
-              border="1px solid"
-              borderColor="whiteAlpha.200"
-              borderRadius="xl"
-              p={6}
-              textAlign="center"
-              _hover={{
-                transform: 'translateY(-5px)',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                borderColor: colors.primary + "50"
-              }}
-              transition="all 0.3s ease"
-            >
-              <Icon as={Mail} w={8} h={8} color={colors.primary} mb={4} />
-              <Text fontSize="lg" fontWeight="semibold" color={colors.textPrimary} mb={2}>
-                Email
-              </Text>
-              <Text fontSize="sm" color={colors.textMuted}>
-                support@valero.com<br />
-                partnerships@valero.com<br />
-                hello@valero.com
-              </Text>
-            </Box>
-
-            {/* Business Hours Card */}
-            <Box
-              bg={colors.backgroundSecondary + "20"}
-              backdropFilter="blur(10px)"
-              border="1px solid"
-              borderColor="whiteAlpha.200"
-              borderRadius="xl"
-              p={6}
-              textAlign="center"
-              _hover={{
-                transform: 'translateY(-5px)',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                borderColor: colors.primary + "50"
-              }}
-              transition="all 0.3s ease"
-            >
-              <Icon as={Clock} w={8} h={8} color={colors.primary} mb={4} />
-              <Text fontSize="lg" fontWeight="semibold" color={colors.textPrimary} mb={2}>
-                Business Hours
-              </Text>
-              <Text fontSize="sm" color={colors.textMuted}>
-                Monday - Friday<br />
-                9:00 AM - 6:00 PM EST<br />
-                24/7 Support Available
-              </Text>
-            </Box>
-          </SimpleGrid>
+          <ContactCards contacts={contactData} />
         </motion.div>
       </VStack>
     </Box>

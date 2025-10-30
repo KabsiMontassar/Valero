@@ -70,7 +70,7 @@ const Features = () => {
       alignItems="center"
       justifyContent="center"
     >
-      <Box maxW="900px" w="100%" px={8}>
+      <Box maxW="1100px" w="100%" px={8}>
         <VStack gap={16} align="stretch">
 
 
@@ -101,7 +101,7 @@ const Features = () => {
               }}
 
             >
-              <Flex minH="380px">
+              <Flex minH="500px">
                 {/* Left Half - Content */}
                 <Box
                   flex="1"
