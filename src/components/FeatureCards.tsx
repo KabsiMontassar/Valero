@@ -100,8 +100,8 @@ const FeatureCard = ({ feature }: FeatureCardProps) => (
             py={3}
             px={6}
             borderRadius="2xl"
-            
-            bg={colors.backgroundSecondary +'50'}
+
+            bg={colors.backgroundSecondary + '50'}
             height="100%"
             transition="all 0.3s ease"
             _hover={{
@@ -162,22 +162,22 @@ const FeatureCards = () => {
                         letterSpacing="wide"
                         textTransform="uppercase"
                     >
-                       ✦ Features
+                        ✦ Features
                     </Text>
 
                     <Box>
                         <Text
-                            fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
+                            fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
                             fontWeight="bold"
                             lineHeight="1.1"
                             mb={6}
                         >
                             <Text as="span" color={colors.textPrimary}>
-                                Smarter Support.
+                                Built for Scale.
                             </Text>
                             <br />
                             <Text as="span" style={gradientTextStyles}>
-                                Real Results.
+                                Engineered for Performance.
                             </Text>
                         </Text>
                     </Box>
@@ -189,7 +189,7 @@ const FeatureCards = () => {
                         maxW="600px"
                         fontWeight="normal"
                     >
-                        Promptly combines powerful AI features with outcomes that help your team scale, save, and satisfy.
+                        Seamlessly powering thousands of live connections with ultra-low latency and rock-solid reliability.
                     </Text>
                 </VStack>
 

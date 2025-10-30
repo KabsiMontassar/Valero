@@ -2,14 +2,17 @@ import { Box, Text, Image } from '@chakra-ui/react';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { innerPaths } from '../types/innerPaths';
 import messagecirc from '../../assets/messagecirc.svg';
 import messagerec from '../../assets/messagerec.svg';
 import mic from '../../assets/mic.svg';
 import phone from '../../assets/phone.svg';
 import send from '../../assets/send.svg';
+import AnimatedFooter from '../AnimatedFooter';
+import colors, { gradientTextStyles } from '@/theme';
 
-gsap.registerPlugin(MorphSVGPlugin);
+gsap.registerPlugin(MorphSVGPlugin, ScrollTrigger);
 
 const Footer = () => {
   const morphRef = useRef<SVGPathElement>(null);
@@ -30,7 +33,7 @@ const Footer = () => {
   return (
     <Box
       id="footer"
-      pb={20}
+
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -83,7 +86,7 @@ const Footer = () => {
           {/* Circular glow behind black circle */}
           <Box
             position="absolute"
-          
+
             borderRadius="50%"
 
             zIndex={0}
@@ -134,130 +137,33 @@ const Footer = () => {
       </Box>
 
       {/* Footer text */}
-      <Text mt={8} fontSize="xl" textAlign="center" color="white" opacity={0.85}>
-        The Future of Customer <br /> Support has Arrived.
-      </Text>
+      <Box mt={8} textAlign="center" px={4} zIndex={1}>
+        <Text
+          fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+          fontWeight="bold"
+          lineHeight="1.1"
+          mb={6}
+        >
+          <Text as="span" color={colors.textPrimary}>
+            Real-time Communication.
+          </Text>
+          <br />
+          <Text as="span" style={gradientTextStyles}>
+            Voice Powered.
+          </Text>
+        </Text>
+      </Box>
 
       {/* Divider */}
-      <Box 
-        width="80%" 
-        height="1px" 
-        bg="rgba(255, 255, 255, 0.2)" 
-        mt={8} 
+      <Box
+        width="80%"
+        height="1px"
+        bg="rgba(255, 255, 255, 0.2)"
+        mt={8}
         mb={8}
       />
+      <AnimatedFooter />
 
-      {/* Footer Links Section */}
-      <Box width="100%" maxW="1200px" px={8}>
-        <Box display="flex" justifyContent="space-between" flexWrap="wrap" gap={8}>
-          {/* Product Column */}
-          <Box minW="200px">
-            <Text fontSize="sm" fontWeight="semibold" color="rgba(255, 255, 255, 0.6)" mb={4}>
-              Product
-            </Text>
-            <Box display="flex" flexDirection="column" gap={2}>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Home
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Features
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Pricing
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Resources
-              </Text>
-            </Box>
-          </Box>
-
-          {/* Template Column */}
-          <Box minW="200px">
-            <Text fontSize="sm" fontWeight="semibold" color="rgba(255, 255, 255, 0.6)" mb={4}>
-              Template
-            </Text>
-            <Box display="flex" flexDirection="column" gap={2}>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Style Guide
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Instructions
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Components
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Changelog
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Licenses
-              </Text>
-            </Box>
-          </Box>
-
-          {/* Company Column */}
-          <Box minW="200px">
-            <Text fontSize="sm" fontWeight="semibold" color="rgba(255, 255, 255, 0.6)" mb={4}>
-              Company
-            </Text>
-            <Box display="flex" flexDirection="column" gap={2}>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Contact
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Privacy Policy
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Terms of Service
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                404
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Password
-              </Text>
-            </Box>
-          </Box>
-
-          {/* Social Column */}
-          <Box minW="200px">
-            <Text fontSize="sm" fontWeight="semibold" color="rgba(255, 255, 255, 0.6)" mb={4}>
-              Social
-            </Text>
-            <Box display="flex" flexDirection="column" gap={2}>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                Facebook
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                LinkedIn
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                X
-              </Text>
-              <Text fontSize="sm" color="rgba(255, 255, 255, 0.8)" cursor="pointer" _hover={{ color: "white" }}>
-                YouTube
-              </Text>
-            </Box>
-          </Box>
-        </Box>
-
-        {/* Bottom Section */}
-        <Box mt={8} pt={6} borderTop="1px solid rgba(255, 255, 255, 0.1)">
-          <Box display="flex" justifyContent="space-between" alignItems="center" flexWrap="wrap" gap={4}>
-            {/* Logo */}
-            <Text fontSize="2xl" fontWeight="bold" color="white">
-              Promptly
-            </Text>
-            
-            {/* Copyright and Credits */}
-            <Box display="flex" gap={6} fontSize="sm" color="rgba(255, 255, 255, 0.6)">
-              <Text>© 2025 Promptly Template. All right reserved</Text>
-              <Text>Created by Flowx</Text>
-              <Text>Powered by Webflow</Text>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
     </Box>
   );
 };

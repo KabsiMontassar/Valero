@@ -13,7 +13,7 @@ export const colors = {
   success: '#5FBFA2',
   warning: '#E0B85A',
   error: '#D97B7B',
-  info: '#1E5BC7',              // Stronger info blue
+  info: '#1E5BC7',              //  Stronger info blue
 };
 
 // Gradient text styles for highlighted content
