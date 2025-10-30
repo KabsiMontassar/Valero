@@ -59,7 +59,7 @@ const FaqItem = ({ question, answer }: { question: string; answer: string }) => 
           _hover={{ bg: colors.primary + "10" }}
         >
           <Text
-            fontSize="md"
+            fontSize="lg"
             fontWeight="400"
             color={colors.textPrimary}
             textAlign="left"
@@ -86,7 +86,7 @@ const FaqItem = ({ question, answer }: { question: string; answer: string }) => 
             style={{ overflow: "hidden" }}
           >
             <Box px={6} py={6} textAlign={"start"}>
-              <Text fontSize={"xs"}   fontWeight="400" color={colors.textMuted} lineHeight="1.6">
+              <Text fontSize={"md"}   fontWeight="400" color={colors.textMuted} lineHeight="1.6">
                 {answer}
               </Text>
             </Box>
