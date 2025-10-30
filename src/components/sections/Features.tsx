@@ -45,8 +45,7 @@ const Features = () => {
     sections.forEach(section => {
       gsap.to(section, {
         opacity: 0,
-        scale: 0.9,
-        y: 50,
+       
         
         scrollTrigger: {
           trigger: section,

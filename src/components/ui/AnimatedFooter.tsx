@@ -228,7 +228,7 @@ const AnimatedFooter = () => {
             >
                 <Aurora
                     colorStops={[colors.primary, colors.secondary, "#3476da"]}
-                    blend={0.5}
+                    blend={1}
                     speed={1}
                 />
             </Box>
