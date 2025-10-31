@@ -1,6 +1,6 @@
-# VoiceFlow - Real-Time Communication Platform
+# Valero - Real-Time Communication Platform
 
-A modern, animated, responsive single-page website showcasing VoiceFlow, a real-time voice and messaging platform built with React 19, TypeScript, Chakra UI, Framer Motion, and GSAP.
+A modern, animated, responsive single-page website showcasing Valero, a real-time voice and messaging platform built with React 19, TypeScript, Chakra UI, Framer Motion, and GSAP.
 
 ## ✨ Features
 
@@ -43,7 +43,7 @@ The project uses a carefully crafted color palette optimized for dark themes:
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd VoiceFlowVitrine/SPA
+cd Valero
 ```
 
 2. Install dependencies:
@@ -86,7 +86,7 @@ This project is configured for automatic deployment to GitHub Pages using GitHub
 
 3. **Automatic Deployment**:
    - The GitHub Actions workflow will automatically build and deploy your site
-   - Your site will be available at: `https://[username].github.io/ValeroVitrine/`
+   - Your site will be available at: `https://kebsiMontassar.github.io/Valero/`
 
 #### Manual Deployment (Alternative):
 
@@ -121,7 +121,7 @@ src/
 ## 🎯 Sections
 
 1. **Hero**: Animated introduction with GSAP floating particles and text reveals
-2. **About**: Two-column layout explaining VoiceFlow's purpose and vision  
+2. **About**: Two-column layout explaining Valero's purpose and vision  
 3. **Features**: Grid of feature cards with hover animations and icons
 4. **Demo**: Interactive mockup showcase with floating animations
 5. **Vision**: Future roadmap and development plans
@@ -142,7 +142,7 @@ src/
 
 ## 📄 License
 
-This project showcases VoiceFlow and serves as a portfolio piece demonstrating modern web development techniques.
+This project showcases Valero and serves as a portfolio piece demonstrating modern web development techniques.
 
 ---
 

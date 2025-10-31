@@ -130,7 +130,7 @@ const Demo = () => {
               >
                 <Image
                   src={image}
-                  alt="VoiceFlow Interface Preview"
+                  alt="Valero Interface Preview"
                   width="100%"
                   height="100%"
                   objectFit="cover"

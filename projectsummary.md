@@ -1,4 +1,4 @@
-# VoiceFlow
+# Valero
 
 > A production-ready real-time communication platform featuring WebRTC voice chat, instant messaging, and presence tracking. Built with modern web technologies for scalability and performance.
 
@@ -32,7 +32,7 @@
 
 ## Overview
 
-VoiceFlow is a real-time communication platform that combines instant messaging with WebRTC-powered voice chat. Designed for scalability and performance, it supports multiple concurrent rooms with real-time presence tracking, typing indicators, and peer-to-peer voice connections.
+Valero is a real-time communication platform that combines instant messaging with WebRTC-powered voice chat. Designed for scalability and performance, it supports multiple concurrent rooms with real-time presence tracking, typing indicators, and peer-to-peer voice connections.
 
 ### Key Highlights
 
@@ -228,7 +228,7 @@ The application includes several performance optimizations:
 
 - GitHub: [@KabsiMontassar](https://github.com/KabsiMontassar)
 - Email: <kebsimontassar@gmail.com>
-- Project Link: [https://github.com/KabsiMontassar/VoiceFlow](https://github.com/KabsiMontassar/VoiceFlow)
+- Project Link: [https://github.com/KabsiMontassar/Valero](https://github.com/KabsiMontassar/Valero)
 
 ---
 

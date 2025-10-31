@@ -2,7 +2,7 @@
 - [x] Verify that the copilot-instructions.md file in the .github directory is created.
 
 - [x] Clarify Project Requirements
-	<!-- Project: VoiceFlow showcase website with React 19 + TypeScript + Chakra UI + Framer Motion + GSAP -->
+	<!-- Project: Valero showcase website with React 19 + TypeScript + Chakra UI + Framer Motion + GSAP -->
 
 - [x] Scaffold the Project
 	<!--

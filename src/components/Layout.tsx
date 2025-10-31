@@ -84,7 +84,7 @@ const Layout = ({ children }: LayoutProps) => {
         display={{ base: 'none', md: 'block' }}
       >
         <Link
-          href="https://github.com/KabsiMontassar/ValeroVitrine"
+          href="https://github.com/KabsiMontassar/Valero"
           target="_blank"
           rel="noopener noreferrer"
           _hover={{ textDecoration: 'none' }}
@@ -322,7 +322,7 @@ const Layout = ({ children }: LayoutProps) => {
                 borderColor={colors.borderSubtle}
               >
                 <Link
-                  href="https://github.com/KabsiMontassar/ValeroVitrine"
+                  href="https://github.com/KabsiMontassar/Valero"
                   target="_blank"
                   rel="noopener noreferrer"
                   _hover={{ textDecoration: 'none' }}
