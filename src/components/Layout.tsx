@@ -84,7 +84,7 @@ const Layout = ({ children }: LayoutProps) => {
         display={{ base: 'none', md: 'block' }}
       >
         <Link
-          href="https://github.com/KabsiMontassar/Valero"
+          href="https://github.com/KabsiMontassar/ValeroChatAPP"
           target="_blank"
           rel="noopener noreferrer"
           _hover={{ textDecoration: 'none' }}
