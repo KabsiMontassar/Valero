@@ -34,7 +34,7 @@ const system = createSystem(defaultConfig, {
 function App() {
   return (
     <ChakraProvider value={system}>
-      <Router>
+      <Router basename="/Valero">
         <Layout>
           <Suspense fallback={
             <Box
