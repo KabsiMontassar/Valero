@@ -64,7 +64,41 @@ npm run dev
 npm run build
 ```
 
-## 📁 Project Structure
+## � Deployment
+
+### GitHub Pages
+
+This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
+
+#### Setup Instructions:
+
+1. **Enable GitHub Pages** in your repository:
+   - Go to your repository on GitHub
+   - Navigate to **Settings** → **Pages**
+   - Under **Source**, select **GitHub Actions**
+
+2. **Push your changes** to the `main` branch:
+   ```bash
+   git add .
+   git commit -m "Configure GitHub Pages deployment"
+   git push origin main
+   ```
+
+3. **Automatic Deployment**:
+   - The GitHub Actions workflow will automatically build and deploy your site
+   - Your site will be available at: `https://[username].github.io/ValeroVitrine/`
+
+#### Manual Deployment (Alternative):
+
+If you prefer manual deployment, you can use:
+
+```bash
+npm install -g gh-pages
+npm run build
+npx gh-pages -d dist
+```
+
+## �📁 Project Structure
 
 ```
 src/

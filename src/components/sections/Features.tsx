@@ -4,6 +4,10 @@ import { Globe, Zap, Shield, Users } from 'lucide-react';
 import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import image1 from '../../assets/screens/CrystalClear.png';
+import image3 from '../../assets/screens/GlobalScale.png';
+import image2 from '../../assets/screens/RealTimemessaging.png';
+import image4 from '../../assets/screens/security.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,28 +17,28 @@ const features = [
     icon: Users,
     title: 'Crystal Clear Voice',
     description: 'Studio-quality audio with WebRTC technology for natural, lag-free conversations.',
-    image: 'https://picsum.photos/400/300?random=2'
+    image: image1
   },
   {
     id: 2,
     icon: Zap,
     title: 'Real-time Messaging',
     description: 'Instant message delivery with typing indicators and read receipts.',
-    image: 'https://picsum.photos/400/300?random=3'
+    image:  image2
   },
   {
     id: 3,
     icon: Globe,
     title: 'Global Scale',
     description: 'Handle thousands of concurrent users with automatic regional routing.',
-    image: 'https://picsum.photos/400/300?random=4'
+    image: image3
   },
   {
     id: 4,
     icon: Shield,
     title: 'Enterprise Security',
     description: 'End-to-end encryption and compliance with data protection standards.',
-    image: 'https://picsum.photos/400/300?random=5'
+    image: image4
   }
 ];
 
@@ -101,7 +105,7 @@ const Features = () => {
               }}
 
             >
-              <Flex direction={{ base: 'column', md: 'row' }} minH={{ base: 'auto', md: '500px' }}>
+              <Flex direction={{ base: 'column', md: 'row' }} minH={{ base: 'auto', md: '320px' }}>
                 {/* Left Half - Content */}
                 <Box
                   flex={{ base: 'auto', md: 1 }}
@@ -149,8 +153,11 @@ const Features = () => {
                     alt={feature.title}
                     width="100%"
                     height="100%"
-                    objectFit="cover"
+                    objectFit="contain"
+                    transition="transform 0.3s"
                     _hover={{ transform: 'scale(1.05)' }}
+                  
+                   
                   />
                 </Box>
               </Flex>

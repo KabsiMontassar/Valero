@@ -1,6 +1,7 @@
 import { Box, Text, Image, Flex } from '@chakra-ui/react';
 import { gradientTextStyles, colors } from '../../theme';
 import { motion } from 'framer-motion';
+import image from '../../assets/screens/chatinterface.png'
 const Demo = () => {
   return (
     <Flex
@@ -128,7 +129,7 @@ const Demo = () => {
                 pt={{ base: 3, md: 5 }}
               >
                 <Image
-                  src="https://picsum.photos/800/400?random=1"
+                  src={image}
                   alt="VoiceFlow Interface Preview"
                   width="100%"
                   height="100%"
