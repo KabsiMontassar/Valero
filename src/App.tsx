@@ -1,5 +1,5 @@
 import { ChakraProvider, createSystem, defaultConfig, Box, Spinner } from '@chakra-ui/react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import colors from './theme';
 import Layout from './components/Layout';
@@ -34,7 +34,7 @@ const system = createSystem(defaultConfig, {
 function App() {
   return (
     <ChakraProvider value={system}>
-      <Router basename="/Valero">
+      <Router>
         <Layout>
           <Suspense fallback={
             <Box
