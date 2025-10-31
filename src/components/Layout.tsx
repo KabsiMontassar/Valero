@@ -322,7 +322,7 @@ const Layout = ({ children }: LayoutProps) => {
                 borderColor={colors.borderSubtle}
               >
                 <Link
-                  href="https://github.com/KabsiMontassar/Valero"
+                  href="https://github.com/KabsiMontassar/ValeroChatAPP"
                   target="_blank"
                   rel="noopener noreferrer"
                   _hover={{ textDecoration: 'none' }}
